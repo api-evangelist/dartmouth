@@ -1,0 +1,56 @@
+---
+name: Dartmouth College
+description: Dartmouth College public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/dartmouth/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 3
+    summary: >-
+      Dartmouth maintains a real, named developer platform (DartAPI at
+      developer.dartmouth.edu) with documented resource APIs (People, Nextgen),
+      but the portal home and docs pages redirect to Dartmouth CAS login (HTTP
+      302) and API keys are manually issued, so no public unauthenticated API
+      docs or endpoints were directly readable. Two genuinely reachable surfaces
+      were verified live: the OpenAI-compatible Dartmouth Chat AI API
+      (chat.dartmouth.edu/api, 200) documented via Research Computing and the
+      langchain_dartmouth package/GitHub, and the public ArcGIS Hub open-data
+      portal (data-dartmouth.opendata.arcgis.com, 200) served by the standard
+      ArcGIS Hub Search API. GitHub orgs (dartmouth, dartmouth-dltg) are public
+      and active. No endpoints were fabricated; gated/auth-only surfaces are
+      flagged as such.
+    endpoints:
+      - url: https://developer.dartmouth.edu/
+        status: 302
+        note: DartAPI developer portal; redirects to Dartmouth CAS login (gated).
+      - url: https://developer.dartmouth.edu/docs/300_resource_apis/400_people/400_people.md
+        status: 302
+        note: People API docs appear in search but redirect to CAS auth.
+      - url: https://chat.dartmouth.edu/api
+        status: 200
+        note: OpenAI-compatible Dartmouth Chat AI API base; requires DARTMOUTH_API_KEY.
+      - url: https://rc.dartmouth.edu/ai/online-resources/using-the-api/
+        status: 200
+        note: Public Research Computing docs for using the Dartmouth Chat API.
+      - url: https://data-dartmouth.opendata.arcgis.com/
+        status: 200
+        note: Public ArcGIS Hub open-data portal.
+      - url: https://hub.arcgis.com/api/search/v1
+        status: 200
+        note: ArcGIS Hub Search API used by the Dartmouth open-data portal.
+      - url: https://pypi.org/project/langchain-dartmouth/
+        status: 200
+        note: Official langchain_dartmouth SDK on PyPI.
+      - url: https://github.com/dartmouth
+        status: 200
+        note: Primary Dartmouth GitHub organization.
+      - url: https://github.com/dartmouth-dltg
+        status: 200
+        note: Digital Library Technologies Group GitHub org (ArchivesSpace/Omeka-S work).
+      - url: https://home.dartmouth.edu/
+        status: 200
+        note: Official institutional website.
+      - url: https://login.dartmouth.edu/cas/login
+        status: 0
+        note: CAS SSO login service; did not resolve to curl (auth gateway).

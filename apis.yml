@@ -1,0 +1,105 @@
+---
+aid: dartmouth
+name: Dartmouth College
+description: >-
+  Dartmouth College is a private Ivy League research university in Hanover,
+  New Hampshire, United States, ranked #243 in the QS World University Rankings
+  2025. Its public developer footprint centers on the DartAPI developer portal
+  (developer.dartmouth.edu), which documents institutional resource APIs (such as
+  a People/directory API) gated behind Dartmouth CAS authentication and manually
+  issued API keys. Dartmouth also operates a public ArcGIS Hub open-data portal,
+  an OpenAI-compatible Dartmouth Chat AI API for hosted/on-premise models, and
+  active GitHub organizations including the Digital Library Technologies Group.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/dartmouth/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Research
+  - Open Data
+  - Artificial Intelligence
+  - United States
+  - Ivy League
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: dartmouth:dartapi
+    name: DartAPI Developer Portal
+    description: >-
+      DartAPI is Dartmouth's institutional API platform, documenting resource
+      APIs such as the People API (directory information like name and email for
+      Dartmouth identities) and a Nextgen API for student employee data. Access
+      requires authentication to the DartAPI Login Service via a JWT bearer token
+      obtained from a manually issued API key, and a Dartmouth Service Account
+      requested through the Help Desk. Documentation pages sit behind Dartmouth
+      CAS single sign-on.
+    humanURL: https://developer.dartmouth.edu/
+    tags: [ Identity, Directory, People, Authentication, Gated ]
+    properties:
+      - type: Documentation
+        url: https://developer.dartmouth.edu/
+      - type: Authentication
+        url: https://login.dartmouth.edu/cas/login
+  - aid: dartmouth:chat-ai
+    name: Dartmouth Chat AI API
+    description: >-
+      An OpenAI-compatible REST API exposing large language models, embedding
+      models, and reranking models deployed on Dartmouth's compute infrastructure
+      as well as third-party cloud models made available by the institution. It is
+      consumable via standard OpenAI clients and the official langchain_dartmouth
+      Python package, and requires a DARTMOUTH_API_KEY obtained from the developer
+      portal.
+    humanURL: https://rc.dartmouth.edu/ai/online-resources/using-the-api/
+    baseURL: https://chat.dartmouth.edu/api
+    tags: [ Artificial Intelligence, LLM, Embeddings, OpenAI Compatible ]
+    properties:
+      - type: Documentation
+        url: https://rc.dartmouth.edu/ai/online-resources/using-the-api/
+      - type: GitHub
+        url: https://github.com/dartmouth/langchain-dartmouth
+      - type: SDK
+        url: https://pypi.org/project/langchain-dartmouth/
+  - aid: dartmouth:open-data
+    name: Dartmouth Open Data (ArcGIS Hub)
+    description: >-
+      Dartmouth's public open-data portal built on ArcGIS Hub, providing
+      geospatial and tabular datasets. Datasets are accessible through the
+      standard ArcGIS Hub Search API and per-dataset ArcGIS REST / GeoJSON
+      feature services, without authentication for public layers.
+    humanURL: https://data-dartmouth.opendata.arcgis.com/
+    baseURL: https://hub.arcgis.com/api/search/v1
+    tags: [ Open Data, Geospatial, GIS, ArcGIS ]
+    properties:
+      - type: Documentation
+        url: https://data-dartmouth.opendata.arcgis.com/
+common:
+  - type: Website
+    url: https://home.dartmouth.edu/
+  - type: GitHub
+    url: https://github.com/dartmouth
+  - type: GitHub
+    url: https://github.com/dartmouth-dltg
+  - type: DeveloperPortal
+    url: https://developer.dartmouth.edu/
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/dartmouth-college/
+  - type: Twitter
+    url: https://x.com/dartmouth
+  - type: Authentication
+    url: https://login.dartmouth.edu/cas/login
+  - type: Plans
+    url: plans/dartmouth-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dartmouth-rate-limits.yml
+  - type: FinOps
+    url: finops/dartmouth-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
