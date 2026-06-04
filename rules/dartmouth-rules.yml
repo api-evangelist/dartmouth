@@ -1,0 +1,45 @@
+formats:
+  - oas3
+rules:
+  dartmouth-info-title:
+    description: API must declare an info.title.
+    severity: error
+    given: $.info
+    then:
+      field: title
+      function: truthy
+  dartmouth-info-version:
+    description: API must declare an info.version.
+    severity: error
+    given: $.info
+    then:
+      field: version
+      function: truthy
+  dartmouth-has-servers:
+    description: A server URL should be declared so the API is callable.
+    severity: warn
+    given: $
+    then:
+      field: servers
+      function: truthy
+  dartmouth-paths-search-prefix:
+    description: ArcGIS Hub Search paths used by the Dartmouth Open Data portal are versioned under /api/search/v1.
+    severity: warn
+    given: $.paths[*]~
+    then:
+      function: pattern
+      functionOptions:
+        match: "^/api/search/v1"
+  dartmouth-operation-200:
+    description: Read operations should document a 200 response.
+    severity: warn
+    given: $.paths[*].get.responses
+    then:
+      field: "200"
+      function: truthy
+  dartmouth-feature-collection-type:
+    description: Item collection responses follow the GeoJSON FeatureCollection shape.
+    severity: info
+    given: $.components.schemas.OgcItemResponseDto.properties.type.enum
+    then:
+      function: truthy

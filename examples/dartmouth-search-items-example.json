@@ -1,0 +1,28 @@
+{
+  "type": "FeatureCollection",
+  "timestamp": "2026-06-04T03:23:25.590Z",
+  "numberMatched": 10000,
+  "numberReturned": 1,
+  "features": [
+    {
+      "id": "e75c1d231f9a467ab2031df410a03cab",
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "title": "Parque Andrés Bello: espacios y uso recreativo",
+        "type": "StoryMap",
+        "snippet": "",
+        "description": "<p>INTRODUCCIÓN </p><p>El parque Andrés Bello es un espacio recreativo urbano ubicado en la ciudad de Panamá, el cual cumple una función importante como área de esparcimiento para la comunidad. Este tipo de espacios verdes contribuyen al bienestar social, permitiendo la recreación, el descanso y la convivencia entre los ciudadanos. </p><p>El objetivo de este trabajo es analizar la distribución de los elementos dentro del parque, específicamente las bancas, los basureros y las áreas recreativas, mediante el uso de mapas temáticos que permiten visualizar mejor su organización y funcionalidad.</p>",
+        "owner": "estgeoup003",
+        "orgId": "MZOCm6mM4GK0yUsP",
+        "tags": [
+          ""
+        ],
+        "created": 1779681134000,
+        "modified": 1780543400000,
+        "access": "public",
+        "thumbnail": "thumbnail/thumbnail.jpeg"
+      }
+    }
+  ]
+}

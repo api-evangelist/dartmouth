@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/dartmouth/main/json-structure/dartmouth-itemcollection-structure.json",
+  "name": "DartmouthOpenDataItemCollection",
+  "description": "JSON Structure for a GeoJSON FeatureCollection page returned by the ArcGIS Hub Search API as exposed by the Dartmouth Open Data portal.",
+  "type": "object",
+  "properties": {
+    "type": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "numberReturned": { "type": "double" },
+    "numberMatched": { "type": "double" },
+    "features": {
+      "type": "array",
+      "items": { "type": "object" }
+    }
+  },
+  "required": ["type", "timestamp", "numberReturned", "numberMatched", "features"]
+}

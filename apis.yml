@@ -77,6 +77,20 @@ apis:
     properties:
       - type: Documentation
         url: https://data-dartmouth.opendata.arcgis.com/
+      - type: OpenAPI
+        url: openapi/dartmouth-open-data.yaml
+      - type: JSONSchema
+        url: json-schema/dartmouth-itemcollection-schema.json
+      - type: JSONStructure
+        url: json-structure/dartmouth-itemcollection-structure.json
+      - type: Examples
+        url: examples/dartmouth-search-items-example.json
+      - type: Rules
+        url: rules/dartmouth-rules.yml
+      - type: Vocabulary
+        url: vocabulary/dartmouth-vocabulary.yml
+      - type: JSONLD
+        url: json-ld/dartmouth-context.jsonld
 common:
   - type: Website
     url: https://home.dartmouth.edu/

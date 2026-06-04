@@ -1,0 +1,39 @@
+vocabulary:
+  name: Dartmouth Open Data Vocabulary
+  description: >-
+    Controlled terms observed in the ArcGIS Hub Search API as exposed through the
+    Dartmouth College Open Data portal (data-dartmouth.opendata.arcgis.com). Terms
+    reflect the OGC API Records / GeoJSON structures returned by the live API and
+    its OpenAPI definition.
+  version: 1.0.0
+  terms:
+    - term: Catalog
+      definition: The searchable index of datasets and content items published to the Dartmouth Open Data portal.
+      tags: [ open-data, arcgis ]
+    - term: Collection
+      definition: A named grouping of catalog items (for example dataset, all) that can be queried for items.
+      tags: [ open-data, ogc ]
+    - term: Item
+      definition: A single catalog entry returned as a GeoJSON Feature, representing a dataset, map, app, or document.
+      tags: [ open-data, geojson ]
+    - term: FeatureCollection
+      definition: The GeoJSON container returned by the items endpoint, wrapping a page of Feature items.
+      tags: [ geojson, response ]
+    - term: numberMatched
+      definition: Total number of items matching a query across all pages.
+      tags: [ pagination ]
+    - term: numberReturned
+      definition: Number of items included in the current response page.
+      tags: [ pagination ]
+    - term: geometry
+      definition: The GeoJSON geometry (point, line, polygon, or null) describing an item's spatial footprint.
+      tags: [ geospatial, geojson ]
+    - term: orgId
+      definition: ArcGIS organization identifier owning the published item.
+      tags: [ ownership, arcgis ]
+    - term: access
+      definition: Visibility level of an item, such as public, for the open-data portal.
+      tags: [ access-control ]
+    - term: queryables
+      definition: The set of properties that can be used as filters when searching a collection.
+      tags: [ ogc, filtering ]

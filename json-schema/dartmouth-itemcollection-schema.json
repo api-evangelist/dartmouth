@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/dartmouth/main/json-schema/dartmouth-itemcollection-schema.json",
+  "title": "Dartmouth Open Data OGC Item Collection",
+  "description": "A GeoJSON FeatureCollection response from the ArcGIS Hub Search API items endpoint used by the Dartmouth Open Data portal. Derived from the OgcItemResponseDto schema of the Hub Search API OpenAPI definition.",
+  "type": "object",
+  "required": ["type", "timestamp", "numberReturned", "numberMatched", "features"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["FeatureCollection"]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time the response was generated."
+    },
+    "numberReturned": {
+      "type": "number",
+      "description": "Count of items returned in this page."
+    },
+    "numberMatched": {
+      "type": "number",
+      "description": "Total count of items matching the query."
+    },
+    "features": {
+      "type": "array",
+      "items": { "$ref": "dartmouth-item-schema.json" }
+    }
+  }
+}

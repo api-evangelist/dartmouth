@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/dartmouth/main/json-structure/dartmouth-item-structure.json",
+  "name": "DartmouthOpenDataItem",
+  "description": "JSON Structure for a single ArcGIS Hub Search API item (GeoJSON Feature) as exposed by the Dartmouth Open Data portal.",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "type": { "type": "string" },
+    "geometry": { "type": ["object", "null"] },
+    "properties": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "type": { "type": "string" },
+        "snippet": { "type": ["string", "null"] },
+        "description": { "type": ["string", "null"] },
+        "owner": { "type": ["string", "null"] },
+        "orgId": { "type": ["string", "null"] },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "created": { "type": ["int64", "null"] },
+        "modified": { "type": ["int64", "null"] },
+        "access": { "type": ["string", "null"] },
+        "thumbnail": { "type": ["string", "null"] }
+      }
+    }
+  },
+  "required": ["id", "type"]
+}

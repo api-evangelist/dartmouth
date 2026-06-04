@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/dartmouth/main/json-schema/dartmouth-item-schema.json",
+  "title": "Dartmouth Open Data OGC Item",
+  "description": "A single GeoJSON Feature returned by the ArcGIS Hub Search API items endpoint used by the Dartmouth Open Data portal. Derived from the OgcItemDto schema of the Hub Search API OpenAPI definition.",
+  "type": "object",
+  "required": ["id", "type"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the catalog item."
+    },
+    "type": {
+      "type": "string",
+      "enum": ["Feature"],
+      "description": "GeoJSON object type; always 'Feature' for an item."
+    },
+    "geometry": {
+      "description": "GeoJSON geometry of the item, or null when the item has no spatial footprint.",
+      "type": ["object", "null"]
+    },
+    "properties": {
+      "type": "object",
+      "description": "Item metadata properties.",
+      "properties": {
+        "title": { "type": "string" },
+        "type": { "type": "string" },
+        "snippet": { "type": ["string", "null"] },
+        "description": { "type": ["string", "null"] },
+        "owner": { "type": ["string", "null"] },
+        "orgId": { "type": ["string", "null"] },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "created": { "type": ["integer", "null"], "description": "Creation time in epoch milliseconds." },
+        "modified": { "type": ["integer", "null"], "description": "Last modified time in epoch milliseconds." },
+        "access": { "type": ["string", "null"] },
+        "thumbnail": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

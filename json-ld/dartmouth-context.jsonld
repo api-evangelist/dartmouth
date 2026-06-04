@@ -1,0 +1,40 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://developer.dartmouth.edu/ns#",
+    "schema": "https://schema.org/",
+    "geojson": "https://purl.org/geojson/vocab#",
+    "institution": {
+      "@id": "schema:CollegeOrUniversity",
+      "@type": "@id"
+    },
+    "name": "schema:name",
+    "url": "schema:url",
+    "description": "schema:description",
+    "dataset": {
+      "@id": "schema:Dataset",
+      "@container": "@set"
+    },
+    "Item": "schema:CreativeWork",
+    "ItemCollection": "geojson:FeatureCollection",
+    "id": "schema:identifier",
+    "title": "schema:name",
+    "type": "schema:additionalType",
+    "snippet": "schema:abstract",
+    "owner": "schema:creator",
+    "orgId": "schema:provider",
+    "tags": "schema:keywords",
+    "created": "schema:dateCreated",
+    "modified": "schema:dateModified",
+    "access": "schema:conditionsOfAccess",
+    "thumbnail": "schema:thumbnailUrl",
+    "geometry": "geojson:geometry",
+    "features": "geojson:features",
+    "numberMatched": "schema:totalItems",
+    "numberReturned": "schema:itemListElement"
+  },
+  "@type": "CollegeOrUniversity",
+  "name": "Dartmouth College",
+  "url": "https://home.dartmouth.edu/",
+  "description": "Private Ivy League research university in Hanover, New Hampshire, operating the Dartmouth Open Data portal on ArcGIS Hub."
+}
