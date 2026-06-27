@@ -62,7 +62,7 @@ apis:
         url: https://rc.dartmouth.edu/ai/online-resources/using-the-api/
       - type: GitHub
         url: https://github.com/dartmouth/langchain-dartmouth
-      - type: SDK
+      - type: SDKs
         url: https://pypi.org/project/langchain-dartmouth/
   - aid: dartmouth:open-data
     name: Dartmouth Open Data (ArcGIS Hub)
