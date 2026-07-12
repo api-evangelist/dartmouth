@@ -92,6 +92,8 @@ apis:
       - type: JSONLD
         url: json-ld/dartmouth-context.jsonld
 common:
+  - type: DomainSecurity
+    url: security/dartmouth-domain-security.yml
   - type: Website
     url: https://home.dartmouth.edu/
   - type: GitHub
@@ -114,6 +116,8 @@ common:
     url: finops/dartmouth-finops.yml
   - type: Review
     url: review.yml
+  - url: https://home.dartmouth.edu/rss.xml
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
