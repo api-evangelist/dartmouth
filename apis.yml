@@ -92,6 +92,8 @@ apis:
       - type: JSONLD
         url: json-ld/dartmouth-context.jsonld
 common:
+  - type: AgenticAccess
+    url: agentic-access/dartmouth-agentic-access.yml
   - type: DomainSecurity
     url: security/dartmouth-domain-security.yml
   - type: Website
