@@ -1,0 +1,79 @@
+openapi: 3.0.0
+info:
+  title: Hub Search Catalog OgcRootConformance API
+  description: 'Welcome to the Search API. This guide describes how to use the Search API to programmatically query, filter, and search a catalog. Use this explorer to test API endpoints and search the site''s catalog without needing to use the site''s client search interface. Common uses cases include rendering features on a map in other tools including ArcGIS Map Viewer, GIS desktop applications, OWSLib, and more.
+
+
+
+
+    The Search API conforms to the new OGC API - Records specification. For further details including definitions and example use cases, see the <a href="https://doc.arcgis.com/en/hub/content/federate-data-with-external-catalogs.htm#GUID-EAF833F8-FADA-4EC7-A1CA-F704DC987362">web help</a>.'
+  version: 1.0.0
+  contact: {}
+servers:
+- url: https://hub.arcgis.com
+  description: ArcGIS Hub Search API (used by Dartmouth Open Data portal data-dartmouth.opendata.arcgis.com)
+tags:
+- name: OgcRootConformance
+paths:
+  /api/search/v1/conformance:
+    get:
+      description: Returns the conformance specifications the API meets
+      operationId: OgcRootConformanceController_getApiConformance_api/search/v1
+      parameters:
+      - name: token
+        required: false
+        in: query
+        description: ArcGIS token to use when accessing the underlying ArcGIS Item that represents the site.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OgcApiConformancePageDto'
+      summary: ''
+      tags:
+      - OgcRootConformance
+components:
+  schemas:
+    OgcApiConformancePageLinkDto:
+      type: object
+      properties:
+        rel:
+          type: string
+          description: relationship
+        type:
+          type: string
+          description: link MIME type
+        title:
+          type: string
+          description: link title
+        href:
+          type: string
+          description: link uri
+        hreflang:
+          type: string
+          description: link uri
+      required:
+      - rel
+      - type
+      - title
+      - href
+    OgcApiConformancePageDto:
+      type: object
+      properties:
+        conformsTo:
+          description: Array of links to conformance specifications that API conforms to
+          type: array
+          items:
+            type: string
+        links:
+          description: API links
+          type: array
+          items:
+            $ref: '#/components/schemas/OgcApiConformancePageLinkDto'
+      required:
+      - conformsTo
+      - links

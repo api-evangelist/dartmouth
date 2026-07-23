@@ -1,0 +1,43 @@
+openapi: 3.0.0
+info:
+  title: Hub Search Catalog API
+  description: 'Welcome to the Search API. This guide describes how to use the Search API to programmatically query, filter, and search a catalog. Use this explorer to test API endpoints and search the site''s catalog without needing to use the site''s client search interface. Common uses cases include rendering features on a map in other tools including ArcGIS Map Viewer, GIS desktop applications, OWSLib, and more.
+
+
+
+
+    The Search API conforms to the new OGC API - Records specification. For further details including definitions and example use cases, see the <a href="https://doc.arcgis.com/en/hub/content/federate-data-with-external-catalogs.htm#GUID-EAF833F8-FADA-4EC7-A1CA-F704DC987362">web help</a>.'
+  version: 1.0.0
+  contact: {}
+servers:
+- url: https://hub.arcgis.com
+  description: ArcGIS Hub Search API (used by Dartmouth Open Data portal data-dartmouth.opendata.arcgis.com)
+tags:
+- name: Catalog
+paths:
+  /api/search/v1/catalog:
+    get:
+      description: Provides information about the site and its catalog of organized resources and collections.
+      operationId: CatalogController_getSiteCatalog_api/search/v1
+      parameters:
+      - name: token
+        required: false
+        in: query
+        description: ArcGIS token to use when accessing the underlying ArcGIS Item that represents the site.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A data object describing the site and its catalog.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Catalog'
+      summary: ''
+      tags:
+      - Catalog
+components:
+  schemas:
+    Catalog:
+      type: object
+      properties: {}

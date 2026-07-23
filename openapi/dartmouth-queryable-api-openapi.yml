@@ -1,0 +1,228 @@
+openapi: 3.0.0
+info:
+  title: Hub Search Catalog Queryable API
+  description: 'Welcome to the Search API. This guide describes how to use the Search API to programmatically query, filter, and search a catalog. Use this explorer to test API endpoints and search the site''s catalog without needing to use the site''s client search interface. Common uses cases include rendering features on a map in other tools including ArcGIS Map Viewer, GIS desktop applications, OWSLib, and more.
+
+
+
+
+    The Search API conforms to the new OGC API - Records specification. For further details including definitions and example use cases, see the <a href="https://doc.arcgis.com/en/hub/content/federate-data-with-external-catalogs.htm#GUID-EAF833F8-FADA-4EC7-A1CA-F704DC987362">web help</a>.'
+  version: 1.0.0
+  contact: {}
+servers:
+- url: https://hub.arcgis.com
+  description: ArcGIS Hub Search API (used by Dartmouth Open Data portal data-dartmouth.opendata.arcgis.com)
+tags:
+- name: Queryable
+paths:
+  /api/search/v1/collections/{collectionId}/queryables:
+    get:
+      description: Lists the minimal item properties expected to be returned when searching items in the specified collection.
+      operationId: QueryableController_getSiteCollectionQueryables_api/search/v1
+      parameters:
+      - name: collectionId
+        required: true
+        in: path
+        description: Key/id of the collection for which queryables should be obtained.
+        schema:
+          example: dataset
+          type: string
+      - name: token
+        required: false
+        in: query
+        description: ArcGIS token to use when accessing the underlying ArcGIS Item that represents the site.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: A data object describing the core queryable fields of a site catalog collection.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OgcQueryablesResponseDto'
+      summary: ''
+      tags:
+      - Queryable
+components:
+  schemas:
+    OgcQueryablesResponseDto:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - object
+        title:
+          type: string
+        $schema:
+          type: string
+        $id:
+          type: string
+        properties:
+          type: object
+          properties:
+            recordId:
+              title: recordId
+              type: string
+              description: id of the record
+            geometry:
+              title: geometry
+              type: object
+              description: geometry of the underlying resource
+              oneOf:
+              - title: GeoJSON Point
+                type: object
+                required:
+                - type
+                - coordinates
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - Point
+                  coordinates:
+                    type: array
+                    minItems: 2
+                    items:
+                      type: number
+                  bbox:
+                    type: array
+                    minItems: 4
+                    items:
+                      type: number
+                    nullable: true
+              - title: GeoJSON LineString
+                type: object
+                required:
+                - type
+                - coordinates
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - LineString
+                  coordinates:
+                    type: array
+                    minItems: 2
+                    items:
+                      type: array
+                      minItems: 2
+                      items:
+                        type: number
+                  bbox:
+                    type: array
+                    minItems: 4
+                    items:
+                      type: number
+              - title: GeoJSON Polygon
+                type: object
+                required:
+                - type
+                - coordinates
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - Polygon
+                  coordinates:
+                    type: array
+                    items:
+                      type: array
+                      minItems: 4
+                      items:
+                        type: array
+                        minItems: 2
+                        items:
+                          type: number
+                  bbox:
+                    type: array
+                    minItems: 4
+                    items:
+                      type: number
+              - title: GeoJSON MultiPoint
+                type: object
+                required:
+                - type
+                - coordinates
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - MultiPoint
+                  coordinates:
+                    type: array
+                    items:
+                      type: array
+                      minItems: 2
+                      items:
+                        type: number
+                  bbox:
+                    type: array
+                    minItems: 4
+                    items:
+                      type: number
+              - title: GeoJSON MultiLineString
+                type: object
+                required:
+                - type
+                - coordinates
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - MultiLineString
+                  coordinates:
+                    type: array
+                    items:
+                      type: array
+                      minItems: 2
+                      items:
+                        type: array
+                        minItems: 2
+                        items:
+                          type: number
+                  bbox:
+                    type: array
+                    minItems: 4
+                    items:
+                      type: number
+              - title: GeoJSON MultiPolygon
+                type: object
+                required:
+                - type
+                - coordinates
+                properties:
+                  type:
+                    type: string
+                    enum:
+                    - MultiPolygon
+                  coordinates:
+                    type: array
+                    items:
+                      type: array
+                      items:
+                        type: array
+                        minItems: 4
+                        items:
+                          type: array
+                          minItems: 2
+                          items:
+                            type: number
+                  bbox:
+                    type: array
+                    minItems: 4
+                    items:
+                      type: number
+            type:
+              title: type
+              type: string
+              description: the type of the underlying resource
+            title:
+              title: title
+              type: string
+              description: the title of the underlying resource
+      required:
+      - type
+      - title
+      - $schema
+      - properties
