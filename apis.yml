@@ -11,9 +11,21 @@ description: >-
   an OpenAI-compatible Dartmouth Chat AI API for hosted/on-premise models, and
   active GitHub organizations including the Digital Library Technologies Group.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Free
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dartmouth.png
 url: https://raw.githubusercontent.com/api-evangelist/dartmouth/refs/heads/main/apis.yml
 tags:
   - Education
@@ -28,69 +40,217 @@ created: '2026-06-03'
 modified: '2026-06-03'
 specificationVersion: '0.19'
 apis:
-  - aid: dartmouth:dartapi
-    name: DartAPI Developer Portal
-    description: >-
-      DartAPI is Dartmouth's institutional API platform, documenting resource
-      APIs such as the People API (directory information like name and email for
-      Dartmouth identities) and a Nextgen API for student employee data. Access
-      requires authentication to the DartAPI Login Service via a JWT bearer token
-      obtained from a manually issued API key, and a Dartmouth Service Account
-      requested through the Help Desk. Documentation pages sit behind Dartmouth
-      CAS single sign-on.
-    humanURL: https://developer.dartmouth.edu/
-    tags: [ Identity, Directory, People, Authentication, Gated ]
-    properties:
-      - type: Documentation
-        url: https://developer.dartmouth.edu/
-      - type: Authentication
-        url: https://login.dartmouth.edu/cas/login
-  - aid: dartmouth:chat-ai
-    name: Dartmouth Chat AI API
-    description: >-
-      An OpenAI-compatible REST API exposing large language models, embedding
-      models, and reranking models deployed on Dartmouth's compute infrastructure
-      as well as third-party cloud models made available by the institution. It is
-      consumable via standard OpenAI clients and the official langchain_dartmouth
-      Python package, and requires a DARTMOUTH_API_KEY obtained from the developer
-      portal.
-    humanURL: https://rc.dartmouth.edu/ai/online-resources/using-the-api/
-    baseURL: https://chat.dartmouth.edu/api
-    tags: [ Artificial Intelligence, LLM, Embeddings, OpenAI Compatible ]
-    properties:
-      - type: Documentation
-        url: https://rc.dartmouth.edu/ai/online-resources/using-the-api/
-      - type: GitHub
-        url: https://github.com/dartmouth/langchain-dartmouth
-      - type: SDKs
-        url: https://pypi.org/project/langchain-dartmouth/
-  - aid: dartmouth:open-data
-    name: Dartmouth Open Data (ArcGIS Hub)
-    description: >-
-      Dartmouth's public open-data portal built on ArcGIS Hub, providing
-      geospatial and tabular datasets. Datasets are accessible through the
-      standard ArcGIS Hub Search API and per-dataset ArcGIS REST / GeoJSON
-      feature services, without authentication for public layers.
-    humanURL: https://data-dartmouth.opendata.arcgis.com/
-    baseURL: https://hub.arcgis.com/api/search/v1
-    tags: [ Open Data, Geospatial, GIS, ArcGIS ]
-    properties:
-      - type: Documentation
-        url: https://data-dartmouth.opendata.arcgis.com/
-      - type: OpenAPI
-        url: openapi/dartmouth-open-data.yaml
-      - type: JSONSchema
-        url: json-schema/dartmouth-itemcollection-schema.json
-      - type: JSONStructure
-        url: json-structure/dartmouth-itemcollection-structure.json
-      - type: Examples
-        url: examples/dartmouth-search-items-example.json
-      - type: Rules
-        url: rules/dartmouth-rules.yml
-      - type: Vocabulary
-        url: vocabulary/dartmouth-vocabulary.yml
-      - type: JSONLD
-        url: json-ld/dartmouth-context.jsonld
+- aid: dartmouth:dartapi
+  name: DartAPI Developer Portal
+  description: >-
+    DartAPI is Dartmouth's institutional API platform, documenting resource APIs such as the People API
+    (directory information like name and email for Dartmouth identities) and a Nextgen API for student
+    employee data. Access requires authentication to the DartAPI Login Service via a JWT bearer token
+    obtained from a manually issued API key, and a Dartmouth Service Account requested through the Help
+    Desk. Documentation pages sit behind Dartmouth CAS single sign-on.
+  humanURL: https://developer.dartmouth.edu/
+  tags:
+  - Identity
+  - Directory
+  - People
+  - Authentication
+  - Gated
+  properties:
+  - type: Documentation
+    url: https://developer.dartmouth.edu/
+  - type: Authentication
+    url: https://login.dartmouth.edu/cas/login
+- aid: dartmouth:chat-ai
+  name: Dartmouth Chat AI API
+  description: >-
+    An OpenAI-compatible REST API exposing large language models, embedding models, and reranking models
+    deployed on Dartmouth's compute infrastructure as well as third-party cloud models made available
+    by the institution. It is consumable via standard OpenAI clients and the official langchain_dartmouth
+    Python package, and requires a DARTMOUTH_API_KEY obtained from the developer portal.
+  humanURL: https://rc.dartmouth.edu/ai/online-resources/using-the-api/
+  baseURL: https://chat.dartmouth.edu/api
+  tags:
+  - Artificial Intelligence
+  - LLM
+  - Embeddings
+  - OpenAI Compatible
+  properties:
+  - type: Documentation
+    url: https://rc.dartmouth.edu/ai/online-resources/using-the-api/
+  - type: GitHub
+    url: https://github.com/dartmouth/langchain-dartmouth
+  - type: SDKs
+    url: https://pypi.org/project/langchain-dartmouth/
+- aid: dartmouth:dartmouth-catalog-api
+  name: Dartmouth College Catalog API
+  description: The Catalog API from Dartmouth College — 1 operation(s) for catalog.
+  humanURL: https://developer.dartmouth.edu/
+  baseURL: https://chat.dartmouth.edu/api
+  tags:
+  - Catalog
+  properties:
+  - type: OpenAPI
+    url: openapi/dartmouth-catalog-api-openapi.yml
+  - type: Documentation
+    url: https://data-dartmouth.opendata.arcgis.com/
+  - type: JSONSchema
+    url: json-schema/dartmouth-itemcollection-schema.json
+  - type: JSONStructure
+    url: json-structure/dartmouth-itemcollection-structure.json
+  - type: Examples
+    url: examples/dartmouth-search-items-example.json
+  - type: Rules
+    url: rules/dartmouth-rules.yml
+  - type: Vocabulary
+    url: vocabulary/dartmouth-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/dartmouth-context.jsonld
+- aid: dartmouth:dartmouth-collection-api
+  name: Dartmouth College Collection API
+  description: The Collection API from Dartmouth College — 2 operation(s) for collection.
+  humanURL: https://developer.dartmouth.edu/
+  baseURL: https://chat.dartmouth.edu/api
+  tags:
+  - Collection
+  properties:
+  - type: OpenAPI
+    url: openapi/dartmouth-collection-api-openapi.yml
+  - type: Documentation
+    url: https://data-dartmouth.opendata.arcgis.com/
+  - type: JSONSchema
+    url: json-schema/dartmouth-itemcollection-schema.json
+  - type: JSONStructure
+    url: json-structure/dartmouth-itemcollection-structure.json
+  - type: Examples
+    url: examples/dartmouth-search-items-example.json
+  - type: Rules
+    url: rules/dartmouth-rules.yml
+  - type: Vocabulary
+    url: vocabulary/dartmouth-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/dartmouth-context.jsonld
+- aid: dartmouth:dartmouth-ogcitem-api
+  name: Dartmouth College OgcItem API
+  description: The OgcItem API from Dartmouth College — 4 operation(s) for ogcitem.
+  humanURL: https://developer.dartmouth.edu/
+  baseURL: https://chat.dartmouth.edu/api
+  tags:
+  - OgcItem
+  properties:
+  - type: OpenAPI
+    url: openapi/dartmouth-ogcitem-api-openapi.yml
+  - type: Documentation
+    url: https://data-dartmouth.opendata.arcgis.com/
+  - type: JSONSchema
+    url: json-schema/dartmouth-itemcollection-schema.json
+  - type: JSONStructure
+    url: json-structure/dartmouth-itemcollection-structure.json
+  - type: Examples
+    url: examples/dartmouth-search-items-example.json
+  - type: Rules
+    url: rules/dartmouth-rules.yml
+  - type: Vocabulary
+    url: vocabulary/dartmouth-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/dartmouth-context.jsonld
+- aid: dartmouth:dartmouth-ogcitemaggregation-api
+  name: Dartmouth College OgcItemAggregation API
+  description: >-
+    The OgcItemAggregation API from Dartmouth College — 1 operation(s) for ogcitemaggregation.
+  humanURL: https://developer.dartmouth.edu/
+  baseURL: https://chat.dartmouth.edu/api
+  tags:
+  - OgcItemAggregation
+  properties:
+  - type: OpenAPI
+    url: openapi/dartmouth-ogcitemaggregation-api-openapi.yml
+  - type: Documentation
+    url: https://data-dartmouth.opendata.arcgis.com/
+  - type: JSONSchema
+    url: json-schema/dartmouth-itemcollection-schema.json
+  - type: JSONStructure
+    url: json-structure/dartmouth-itemcollection-structure.json
+  - type: Examples
+    url: examples/dartmouth-search-items-example.json
+  - type: Rules
+    url: rules/dartmouth-rules.yml
+  - type: Vocabulary
+    url: vocabulary/dartmouth-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/dartmouth-context.jsonld
+- aid: dartmouth:dartmouth-ogcroot-api
+  name: Dartmouth College OgcRoot API
+  description: The OgcRoot API from Dartmouth College — 1 operation(s) for ogcroot.
+  humanURL: https://developer.dartmouth.edu/
+  baseURL: https://chat.dartmouth.edu/api
+  tags:
+  - OgcRoot
+  properties:
+  - type: OpenAPI
+    url: openapi/dartmouth-ogcroot-api-openapi.yml
+  - type: Documentation
+    url: https://data-dartmouth.opendata.arcgis.com/
+  - type: JSONSchema
+    url: json-schema/dartmouth-itemcollection-schema.json
+  - type: JSONStructure
+    url: json-structure/dartmouth-itemcollection-structure.json
+  - type: Examples
+    url: examples/dartmouth-search-items-example.json
+  - type: Rules
+    url: rules/dartmouth-rules.yml
+  - type: Vocabulary
+    url: vocabulary/dartmouth-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/dartmouth-context.jsonld
+- aid: dartmouth:dartmouth-ogcrootconformance-api
+  name: Dartmouth College OgcRootConformance API
+  description: >-
+    The OgcRootConformance API from Dartmouth College — 1 operation(s) for ogcrootconformance.
+  humanURL: https://developer.dartmouth.edu/
+  baseURL: https://chat.dartmouth.edu/api
+  tags:
+  - OgcRootConformance
+  properties:
+  - type: OpenAPI
+    url: openapi/dartmouth-ogcrootconformance-api-openapi.yml
+  - type: Documentation
+    url: https://data-dartmouth.opendata.arcgis.com/
+  - type: JSONSchema
+    url: json-schema/dartmouth-itemcollection-schema.json
+  - type: JSONStructure
+    url: json-structure/dartmouth-itemcollection-structure.json
+  - type: Examples
+    url: examples/dartmouth-search-items-example.json
+  - type: Rules
+    url: rules/dartmouth-rules.yml
+  - type: Vocabulary
+    url: vocabulary/dartmouth-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/dartmouth-context.jsonld
+- aid: dartmouth:dartmouth-queryable-api
+  name: Dartmouth College Queryable API
+  description: The Queryable API from Dartmouth College — 1 operation(s) for queryable.
+  humanURL: https://developer.dartmouth.edu/
+  baseURL: https://chat.dartmouth.edu/api
+  tags:
+  - Queryable
+  properties:
+  - type: OpenAPI
+    url: openapi/dartmouth-queryable-api-openapi.yml
+  - type: Documentation
+    url: https://data-dartmouth.opendata.arcgis.com/
+  - type: JSONSchema
+    url: json-schema/dartmouth-itemcollection-schema.json
+  - type: JSONStructure
+    url: json-structure/dartmouth-itemcollection-structure.json
+  - type: Examples
+    url: examples/dartmouth-search-items-example.json
+  - type: Rules
+    url: rules/dartmouth-rules.yml
+  - type: Vocabulary
+    url: vocabulary/dartmouth-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/dartmouth-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/dartmouth-agentic-access.yml
