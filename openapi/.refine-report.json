@@ -1,0 +1,26 @@
+{
+  "provider": "dartmouth",
+  "sources": [
+    "dartmouth-catalog-api-openapi.yml",
+    "dartmouth-collection-api-openapi.yml",
+    "dartmouth-ogcitem-api-openapi.yml",
+    "dartmouth-ogcitemaggregation-api-openapi.yml",
+    "dartmouth-ogcroot-api-openapi.yml",
+    "dartmouth-ogcrootconformance-api-openapi.yml",
+    "dartmouth-queryable-api-openapi.yml"
+  ],
+  "outputs": [
+    "dartmouth-catalog-api-openapi.yml",
+    "dartmouth-collection-api-openapi.yml",
+    "dartmouth-ogcitem-api-openapi.yml",
+    "dartmouth-ogcitemaggregation-api-openapi.yml",
+    "dartmouth-ogcroot-api-openapi.yml",
+    "dartmouth-ogcrootconformance-api-openapi.yml",
+    "dartmouth-queryable-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
