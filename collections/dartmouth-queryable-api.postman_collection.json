@@ -1,0 +1,140 @@
+{
+  "item": [
+    {
+      "id": "667a626b-12de-4557-8d61-a30c1c0a7850",
+      "name": "Queryable",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a672b15d-a0dd-40f7-9ee5-036aa7ac3944",
+          "name": "Queryable Controller get Site Collection Queryables api/search/v1",
+          "request": {
+            "name": "Queryable Controller get Site Collection Queryables api/search/v1",
+            "description": {
+              "content": "Lists the minimal item properties expected to be returned when searching items in the specified collection.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "search",
+                "v1",
+                "collections",
+                ":collectionId",
+                "queryables"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "ArcGIS token to use when accessing the underlying ArcGIS Item that represents the site."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) Key/id of the collection for which queryables should be obtained."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "12ed6725-74f8-47e8-9055-01e5e6247415",
+              "name": "A data object describing the core queryable fields of a site catalog collection.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search",
+                    "v1",
+                    "collections",
+                    ":collectionId",
+                    "queryables"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) Key/id of the collection for which queryables should be obtained."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"object\",\n  \"title\": \"string\",\n  \"$schema\": \"string\",\n  \"properties\": {\n    \"recordId\": \"string\",\n    \"geometry\": {\n      \"type\": \"Point\",\n      \"coordinates\": [\n        3695.672876271957,\n        7137.619791593039\n      ],\n      \"bbox\": [\n        7000.972982769763,\n        4658.38185953943,\n        8784.208186575754,\n        1956.3756496604578\n      ]\n    },\n    \"type\": \"string\",\n    \"title\": \"string\"\n  },\n  \"$id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://hub.arcgis.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9ce334de-97f1-4a6a-b0f4-518e9c3bfb98",
+    "name": "Hub Search Catalog Queryable API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to the Search API. This guide describes how to use the Search API to programmatically query, filter, and search a catalog. Use this explorer to test API endpoints and search the site's catalog without needing to use the site's client search interface. Common uses cases include rendering features on a map in other tools including ArcGIS Map Viewer, GIS desktop applications, OWSLib, and more.\n\n\n\nThe Search API conforms to the new OGC API - Records specification. For further details including definitions and example use cases, see the <a href=\"https://doc.arcgis.com/en/hub/content/federate-data-with-external-catalogs.htm#GUID-EAF833F8-FADA-4EC7-A1CA-F704DC987362\">web help</a>.",
+      "type": "text/plain"
+    }
+  }
+}

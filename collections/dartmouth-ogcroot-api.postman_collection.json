@@ -1,0 +1,118 @@
+{
+  "item": [
+    {
+      "id": "54ad6c36-26c6-448d-807d-f720821aa8e2",
+      "name": "OgcRoot",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8cd39f75-491e-4189-a7e8-686796003935",
+          "name": "Ogc Root Controller get Site Root api/search/v1",
+          "request": {
+            "name": "Ogc Root Controller get Site Root api/search/v1",
+            "description": {
+              "content": "Provides links to the API definition, the Conformance statements and the metadata about the coverage data in this dataset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "search",
+                "v1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "ArcGIS token to use when accessing the underlying ArcGIS Item that represents the site."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9abcbc7d-46dc-48ab-b2fa-dd8590faae8c",
+              "name": "A data object describing the site and its API.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search",
+                    "v1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"links\": [\n    {\n      \"rel\": \"string\",\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"href\": \"string\"\n    },\n    {\n      \"rel\": \"string\",\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"href\": \"string\"\n    }\n  ],\n  \"item\": {\n    \"id\": \"string\",\n    \"type\": \"Feature\",\n    \"geometry\": {\n      \"type\": \"Point\",\n      \"coordinates\": [\n        1522.2344388416009,\n        4652.753525529178\n      ],\n      \"bbox\": [\n        2520.3121881882553,\n        1127.1137919555508,\n        7775.319016183944,\n        5285.416875941759\n      ]\n    },\n    \"properties\": {},\n    \"time\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://hub.arcgis.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c9b53b88-61e2-41ab-a420-10a9450a80f1",
+    "name": "Hub Search Catalog OgcRoot API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to the Search API. This guide describes how to use the Search API to programmatically query, filter, and search a catalog. Use this explorer to test API endpoints and search the site's catalog without needing to use the site's client search interface. Common uses cases include rendering features on a map in other tools including ArcGIS Map Viewer, GIS desktop applications, OWSLib, and more.\n\n\n\nThe Search API conforms to the new OGC API - Records specification. For further details including definitions and example use cases, see the <a href=\"https://doc.arcgis.com/en/hub/content/federate-data-with-external-catalogs.htm#GUID-EAF833F8-FADA-4EC7-A1CA-F704DC987362\">web help</a>.",
+      "type": "text/plain"
+    }
+  }
+}

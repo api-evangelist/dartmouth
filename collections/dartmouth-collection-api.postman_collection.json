@@ -1,0 +1,226 @@
+{
+  "item": [
+    {
+      "id": "fdf60d30-c0b2-4114-bf26-d17acca0503d",
+      "name": "Collection",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7949ef5a-bd2c-4cab-9a91-733850e0c67b",
+          "name": "Collection Controller get Site Collections api/search/v1",
+          "request": {
+            "name": "Collection Controller get Site Collections api/search/v1",
+            "description": {
+              "content": "Lists the collections described in the site's catalog.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "search",
+                "v1",
+                "collections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "ArcGIS token to use when accessing the underlying ArcGIS Item that represents the site."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "03340dc1-bd12-48d6-8d5f-4151108b6f88",
+              "name": "A data object containing a list of site catalog collections.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search",
+                    "v1",
+                    "collections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"collections\": [\n    {\n      \"id\": \"12345\",\n      \"type\": \"Collection\",\n      \"title\": \"Collection Title\",\n      \"description\": \"Collection description\",\n      \"itemType\": \"string\",\n      \"crs\": [\n        \"string\",\n        \"string\"\n      ],\n      \"filters\": [\n        {\n          \"predicates\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"owner\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"created\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"modified\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typekeywords\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"description\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"snippet\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"accessinformation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"access\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"group\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"culture\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"orgid\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"categories\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"term\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"boundary\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"owner\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"created\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"modified\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typekeywords\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"description\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"snippet\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"accessinformation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"access\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"group\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"culture\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"orgid\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"categories\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"term\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"boundary\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"operation\": \"AND\"\n        },\n        {\n          \"predicates\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"owner\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"created\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"modified\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typekeywords\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"description\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"snippet\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"accessinformation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"access\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"group\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"culture\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"orgid\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"categories\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"term\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"boundary\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"owner\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"created\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"modified\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typekeywords\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"description\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"snippet\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"accessinformation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"access\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"group\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"culture\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"orgid\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"categories\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"term\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"boundary\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"operation\": \"AND\"\n        }\n      ]\n    },\n    {\n      \"id\": \"12345\",\n      \"type\": \"Collection\",\n      \"title\": \"Collection Title\",\n      \"description\": \"Collection description\",\n      \"itemType\": \"string\",\n      \"crs\": [\n        \"string\",\n        \"string\"\n      ],\n      \"filters\": [\n        {\n          \"predicates\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"owner\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"created\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"modified\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typekeywords\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"description\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"snippet\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"accessinformation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"access\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"group\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"culture\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"orgid\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"categories\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"term\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"boundary\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"owner\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"created\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"modified\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typekeywords\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"description\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"snippet\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"accessinformation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"access\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"group\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"culture\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"orgid\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"categories\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"term\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"boundary\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"operation\": \"AND\"\n        },\n        {\n          \"predicates\": [\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"owner\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"created\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"modified\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typekeywords\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"description\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"snippet\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"accessinformation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"access\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"group\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"culture\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"orgid\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"categories\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"term\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"boundary\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"id\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"owner\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"created\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"modified\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"title\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"typekeywords\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"description\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"tags\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"snippet\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"accessinformation\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"access\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"group\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"culture\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"orgid\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"categories\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"term\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"boundary\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ],\n          \"operation\": \"AND\"\n        }\n      ]\n    }\n  ],\n  \"links\": [\n    {\n      \"rel\": \"string\",\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"href\": \"string\"\n    },\n    {\n      \"rel\": \"string\",\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"href\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "15074a79-3a04-4a83-8e6b-95e51bf63f28",
+          "name": "Collection Controller get Site Collection From Id api/search/v1",
+          "request": {
+            "name": "Collection Controller get Site Collection From Id api/search/v1",
+            "description": {
+              "content": "Retrieves the collection from a site's catalog with a provided id/key",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "search",
+                "v1",
+                "collections",
+                ":collectionId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "ArcGIS token to use when accessing the underlying ArcGIS Item that represents the site."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) Key/id for the desired collection."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d347846d-c17a-4d75-8178-92862bee2c9c",
+              "name": "A data object describing a site collection.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search",
+                    "v1",
+                    "collections",
+                    ":collectionId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) Key/id for the desired collection."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"12345\",\n  \"type\": \"Collection\",\n  \"title\": \"Collection Title\",\n  \"description\": \"Collection description\",\n  \"itemType\": \"string\",\n  \"crs\": [\n    \"string\",\n    \"string\"\n  ],\n  \"links\": [\n    {\n      \"rel\": \"string\",\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"href\": \"string\",\n      \"hreflang\": \"string\"\n    },\n    {\n      \"rel\": \"string\",\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"href\": \"string\",\n      \"hreflang\": \"string\"\n    }\n  ],\n  \"filters\": [\n    {\n      \"predicates\": [\n        {\n          \"id\": \"f02bb8795a0d2102733312d124c8d8b3\",\n          \"owner\": \"string\",\n          \"created\": {\n            \"from\": 160000000,\n            \"to\": 170000000\n          },\n          \"modified\": {\n            \"from\": 160000000,\n            \"to\": 170000000\n          },\n          \"title\": \"string\",\n          \"type\": \"string\",\n          \"typekeywords\": \"string\",\n          \"description\": \"string\",\n          \"tags\": \"string\",\n          \"snippet\": \"string\",\n          \"accessinformation\": \"string\",\n          \"access\": \"private\",\n          \"group\": \"e7fa038ea3f5d5a88cd1226a378ae344\",\n          \"culture\": \"string\",\n          \"orgid\": \"gAHKWjXZMe45Bc2c\",\n          \"categories\": \"string\",\n          \"term\": \"string\",\n          \"boundary\": {\n            \"geometry\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"relation\": \"within\"\n          }\n        },\n        {\n          \"id\": \"bc18190771dfc7c3d84e3ee159a21e25\",\n          \"owner\": \"string\",\n          \"created\": {\n            \"from\": 160000000,\n            \"to\": 170000000\n          },\n          \"modified\": {\n            \"from\": 160000000,\n            \"to\": 170000000\n          },\n          \"title\": \"string\",\n          \"type\": \"string\",\n          \"typekeywords\": \"string\",\n          \"description\": \"string\",\n          \"tags\": \"string\",\n          \"snippet\": \"string\",\n          \"accessinformation\": \"string\",\n          \"access\": \"public\",\n          \"group\": \"128fb3bf2c92aa5e600fb037913bf3d3\",\n          \"culture\": \"string\",\n          \"orgid\": \"0csQVwvQ4Ib6y7Tr\",\n          \"categories\": \"string\",\n          \"term\": \"string\",\n          \"boundary\": {\n            \"geometry\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"relation\": \"disjoint\"\n          }\n        }\n      ],\n      \"operation\": \"AND\"\n    },\n    {\n      \"predicates\": [\n        {\n          \"id\": \"e4e06f51fd77efddc10cdffd91e79675\",\n          \"owner\": \"string\",\n          \"created\": {\n            \"from\": 160000000,\n            \"to\": 170000000\n          },\n          \"modified\": {\n            \"from\": 160000000,\n            \"to\": 170000000\n          },\n          \"title\": \"string\",\n          \"type\": \"string\",\n          \"typekeywords\": \"string\",\n          \"description\": \"string\",\n          \"tags\": \"string\",\n          \"snippet\": \"string\",\n          \"accessinformation\": \"string\",\n          \"access\": \"private\",\n          \"group\": \"9a3fa53a1c44f1ffd1b963212b7da036\",\n          \"culture\": \"string\",\n          \"orgid\": \"HOrJbfTarsofgFd6\",\n          \"categories\": \"string\",\n          \"term\": \"string\",\n          \"boundary\": {\n            \"geometry\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"relation\": \"intersects\"\n          }\n        },\n        {\n          \"id\": \"29ea88cd19ac001a0730f2e6894806e8\",\n          \"owner\": \"string\",\n          \"created\": {\n            \"from\": 160000000,\n            \"to\": 170000000\n          },\n          \"modified\": {\n            \"from\": 160000000,\n            \"to\": 170000000\n          },\n          \"title\": \"string\",\n          \"type\": \"string\",\n          \"typekeywords\": \"string\",\n          \"description\": \"string\",\n          \"tags\": \"string\",\n          \"snippet\": \"string\",\n          \"accessinformation\": \"string\",\n          \"access\": \"shared\",\n          \"group\": \"7046f84b2a420206691b673cbad8592b\",\n          \"culture\": \"string\",\n          \"orgid\": \"ai1Qp8HYhJuXq8Fl\",\n          \"categories\": \"string\",\n          \"term\": \"string\",\n          \"boundary\": {\n            \"geometry\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"relation\": \"contains\"\n          }\n        }\n      ],\n      \"operation\": \"AND\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://hub.arcgis.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c47a43ab-02b8-4923-8139-cc2fcb53f415",
+    "name": "Hub Search Catalog Collection API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to the Search API. This guide describes how to use the Search API to programmatically query, filter, and search a catalog. Use this explorer to test API endpoints and search the site's catalog without needing to use the site's client search interface. Common uses cases include rendering features on a map in other tools including ArcGIS Map Viewer, GIS desktop applications, OWSLib, and more.\n\n\n\nThe Search API conforms to the new OGC API - Records specification. For further details including definitions and example use cases, see the <a href=\"https://doc.arcgis.com/en/hub/content/federate-data-with-external-catalogs.htm#GUID-EAF833F8-FADA-4EC7-A1CA-F704DC987362\">web help</a>.",
+      "type": "text/plain"
+    }
+  }
+}

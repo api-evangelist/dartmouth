@@ -1,0 +1,119 @@
+{
+  "item": [
+    {
+      "id": "61526f8f-563e-4979-9c08-d793937bdb5b",
+      "name": "OgcRootConformance",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b88d9796-fcb7-43c7-9a8f-893416f4a80b",
+          "name": "Ogc Root Conformance Controller get Api Conformance api/search/v1",
+          "request": {
+            "name": "Ogc Root Conformance Controller get Api Conformance api/search/v1",
+            "description": {
+              "content": "Returns the conformance specifications the API meets",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "search",
+                "v1",
+                "conformance"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "ArcGIS token to use when accessing the underlying ArcGIS Item that represents the site."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5c3bec93-d373-4cee-8a83-b13fc19c464b",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search",
+                    "v1",
+                    "conformance"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"conformsTo\": [\n    \"string\",\n    \"string\"\n  ],\n  \"links\": [\n    {\n      \"rel\": \"string\",\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"href\": \"string\",\n      \"hreflang\": \"string\"\n    },\n    {\n      \"rel\": \"string\",\n      \"type\": \"string\",\n      \"title\": \"string\",\n      \"href\": \"string\",\n      \"hreflang\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://hub.arcgis.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "8b656028-2190-45d0-a150-ffb03f1e303a",
+    "name": "Hub Search Catalog OgcRootConformance API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to the Search API. This guide describes how to use the Search API to programmatically query, filter, and search a catalog. Use this explorer to test API endpoints and search the site's catalog without needing to use the site's client search interface. Common uses cases include rendering features on a map in other tools including ArcGIS Map Viewer, GIS desktop applications, OWSLib, and more.\n\n\n\nThe Search API conforms to the new OGC API - Records specification. For further details including definitions and example use cases, see the <a href=\"https://doc.arcgis.com/en/hub/content/federate-data-with-external-catalogs.htm#GUID-EAF833F8-FADA-4EC7-A1CA-F704DC987362\">web help</a>.",
+      "type": "text/plain"
+    }
+  }
+}

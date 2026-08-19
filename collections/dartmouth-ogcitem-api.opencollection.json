@@ -1,0 +1,319 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hub Search Catalog OgcItem API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OgcItem",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "OgcItemController_getSiteCollectionItems_api/search/v1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://hub.arcgis.com/api/search/v1/collections/:collectionId/items",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Key/id of the collection for which item should be filtered and returned."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "A general text search filter."
+              },
+              {
+                "name": "bbox",
+                "value": "",
+                "type": "query",
+                "description": "A bbox filter, must be 4 comma-separated coordinates"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "query parameter that represents a parse-able string of filter expressions, structured according to the <a href=\"https://portal.ogc.org/files/96288\">Common Query Language Specification of the OGC Features API</a>. If filter values must include whitespace, try wrapping the value in single quotes."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The number of results to return."
+              },
+              {
+                "name": "startindex",
+                "value": "",
+                "type": "query",
+                "description": "The initial index of the results to return, starting at 1."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "The type of resource."
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query",
+                "description": "The title of resource to return."
+              },
+              {
+                "name": "recordId",
+                "value": "",
+                "type": "query",
+                "description": "The recordId of resource to return. recordId could be itemId or itemId_layerId"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort results by specific fields. Prefixed by either \"+\" for ascending or \"-\" for descending. If no prefix is provided, \"+\" is assumed."
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query",
+                "description": "Tags for items search"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Token to use when accessing the underlying ArcGIS Item that represents the site."
+              },
+              {
+                "name": "openData",
+                "value": "",
+                "type": "query",
+                "description": "Boolean flag to get items that are shared to Opendata group"
+              }
+            ]
+          },
+          "docs": "Returns items from the specified site catalog collection that match specified filters"
+        },
+        {
+          "info": {
+            "name": "OgcItemController_getSiteCollectionItemById_api/search/v1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://hub.arcgis.com/api/search/v1/collections/:collectionId/items/:itemId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "token for use in authentication/authorization"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "OgcItemController_getRelatedOgcItemsById_api/search/v1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://hub.arcgis.com/api/search/v1/collections/:collectionId/items/:recordId/related",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Key/id of the collection for which item should be filtered and returned."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "A general text search filter."
+              },
+              {
+                "name": "bbox",
+                "value": "",
+                "type": "query",
+                "description": "A bbox filter, must be 4 comma-separated coordinates"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "query parameter that represents a parse-able string of filter expressions, structured according to the <a href=\"https://portal.ogc.org/files/96288\">Common Query Language Specification of the OGC Features API</a>. If filter values must include whitespace, try wrapping the value in single quotes."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The number of results to return."
+              },
+              {
+                "name": "startindex",
+                "value": "",
+                "type": "query",
+                "description": "The initial index of the results to return, starting at 1."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "The type of resource."
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query",
+                "description": "The title of resource to return."
+              },
+              {
+                "name": "recordId",
+                "value": "",
+                "type": "query",
+                "description": "The recordId of resource to return. recordId could be itemId or itemId_layerId"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort results by specific fields. Prefixed by either \"+\" for ascending or \"-\" for descending. If no prefix is provided, \"+\" is assumed."
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query",
+                "description": "Tags for items search"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Token to use when accessing the underlying ArcGIS Item that represents the site."
+              },
+              {
+                "name": "openData",
+                "value": "",
+                "type": "query",
+                "description": "Boolean flag to get items that are shared to Opendata group"
+              }
+            ]
+          },
+          "docs": "Returns related items to recordId from the specified site catalog collection that match specified filters"
+        },
+        {
+          "info": {
+            "name": "OgcItemController_getConnectedOgcItemsById_api/search/v1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://hub.arcgis.com/api/search/v1/collections/:collectionId/items/:recordId/connected",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Key/id of the collection for which item should be filtered and returned."
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "A general text search filter."
+              },
+              {
+                "name": "bbox",
+                "value": "",
+                "type": "query",
+                "description": "A bbox filter, must be 4 comma-separated coordinates"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "query parameter that represents a parse-able string of filter expressions, structured according to the <a href=\"https://portal.ogc.org/files/96288\">Common Query Language Specification of the OGC Features API</a>. If filter values must include whitespace, try wrapping the value in single quotes."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The number of results to return."
+              },
+              {
+                "name": "startindex",
+                "value": "",
+                "type": "query",
+                "description": "The initial index of the results to return, starting at 1."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "The type of resource."
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query",
+                "description": "The title of resource to return."
+              },
+              {
+                "name": "recordId",
+                "value": "",
+                "type": "query",
+                "description": "The recordId of resource to return. recordId could be itemId or itemId_layerId"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Sort results by specific fields. Prefixed by either \"+\" for ascending or \"-\" for descending. If no prefix is provided, \"+\" is assumed."
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query",
+                "description": "Tags for items search"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Token to use when accessing the underlying ArcGIS Item that represents the site."
+              },
+              {
+                "name": "openData",
+                "value": "",
+                "type": "query",
+                "description": "Boolean flag to get items that are shared to Opendata group"
+              }
+            ]
+          },
+          "docs": "Returns connected items to recordId from the specified site catalog collection that match specified filters"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

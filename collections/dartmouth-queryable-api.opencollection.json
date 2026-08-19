@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hub Search Catalog Queryable API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Queryable",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "QueryableController_getSiteCollectionQueryables_api/search/v1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://hub.arcgis.com/api/search/v1/collections/:collectionId/queryables",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Key/id of the collection for which queryables should be obtained."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "ArcGIS token to use when accessing the underlying ArcGIS Item that represents the site."
+              }
+            ]
+          },
+          "docs": "Lists the minimal item properties expected to be returned when searching items in the specified collection."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

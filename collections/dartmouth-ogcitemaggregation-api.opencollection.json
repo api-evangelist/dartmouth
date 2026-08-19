@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hub Search Catalog OgcItemAggregation API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OgcItemAggregation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "OgcItemAggregationController_getAggregations_api/search/v1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://hub.arcgis.com/api/search/v1/collections/:collectionId/aggregations",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Key/id of the collection for which item should be filtered and returned."
+              },
+              {
+                "name": "exampleAggregationName",
+                "value": "",
+                "type": "query",
+                "description": "<b>This is an EXAMPLE aggregation expression</b>. More aggregation expressions can be specified by adding additional query parameters, where the name of the parameter is an arbitrary alphabetic aggregation name"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "CQL filter expression that can be used to refine the aggregation search"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Limit the number of results returned for \"bucket\"-based aggregations"
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "Token to use when accessing the underlying ArcGIS Item that represents the site."
+              }
+            ]
+          },
+          "docs": "Returns requested aggregations from the specified site catalog collection"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

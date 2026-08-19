@@ -1,0 +1,814 @@
+{
+  "item": [
+    {
+      "id": "27de680a-0593-4bfc-bdc0-7be72283b285",
+      "name": "OgcItem",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "83773aab-1af5-4c5f-973b-8083b77e1938",
+          "name": "Ogc Item Controller get Site Collection Items api/search/v1",
+          "request": {
+            "name": "Ogc Item Controller get Site Collection Items api/search/v1",
+            "description": {
+              "content": "Returns items from the specified site catalog collection that match specified filters",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "search",
+                "v1",
+                "collections",
+                ":collectionId",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "A general text search filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "bbox",
+                  "value": "<string>",
+                  "description": "A bbox filter, must be 4 comma-separated coordinates"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "query parameter that represents a parse-able string of filter expressions, structured according to the <a href=\"https://portal.ogc.org/files/96288\">Common Query Language Specification of the OGC Features API</a>. If filter values must include whitespace, try wrapping the value in single quotes."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "startindex",
+                  "value": "<integer>",
+                  "description": "The initial index of the results to return, starting at 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "The type of resource."
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>",
+                  "description": "The title of resource to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "recordId",
+                  "value": "<string>",
+                  "description": "The recordId of resource to return. recordId could be itemId or itemId_layerId"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Sort results by specific fields. Prefixed by either \"+\" for ascending or \"-\" for descending. If no prefix is provided, \"+\" is assumed."
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<string>",
+                  "description": "Tags for items search"
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "Token to use when accessing the underlying ArcGIS Item that represents the site."
+                },
+                {
+                  "disabled": false,
+                  "key": "openData",
+                  "value": "<string>",
+                  "description": "Boolean flag to get items that are shared to Opendata group"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) Key/id of the collection for which item should be filtered and returned."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b6d31006-f912-475a-9b4f-5ff72557c746",
+              "name": "A FeatureCollection object describing items (in GeoJSON) returned when searching the provided collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search",
+                    "v1",
+                    "collections",
+                    ":collectionId",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bbox",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "type='Feature Service'"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "startindex",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "recordId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "true"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "openData",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) Key/id of the collection for which item should be filtered and returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"FeatureCollection\",\n  \"timestamp\": \"1948-01-04T02:15:49.071Z\",\n  \"numberReturned\": 19.405459593772044,\n  \"numberMatched\": 6942.702000088067,\n  \"features\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"Point\",\n        \"coordinates\": [\n          5165.320704102628,\n          9481.741832178648\n        ],\n        \"bbox\": [\n          8622.719032689341,\n          8023.695100858092,\n          5220.111001228619,\n          4650.824981260951\n        ]\n      },\n      \"properties\": {},\n      \"time\": {}\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"Point\",\n        \"coordinates\": [\n          7167.362351236188,\n          978.8055371266635\n        ],\n        \"bbox\": [\n          3562.644477338226,\n          1883.9469110467078,\n          3222.0874925921307,\n          4586.081258363433\n        ]\n      },\n      \"properties\": {},\n      \"time\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9ad6d07d-d305-4fcb-b8bf-c42b1d97d9d6",
+          "name": "Ogc Item Controller get Site Collection Item By Id api/search/v1",
+          "request": {
+            "name": "Ogc Item Controller get Site Collection Item By Id api/search/v1",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "search",
+                "v1",
+                "collections",
+                ":collectionId",
+                "items",
+                ":itemId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "token for use in authentication/authorization"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "itemId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "63284e44-370e-47cd-8804-5c9d925844f1",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search",
+                    "v1",
+                    "collections",
+                    ":collectionId",
+                    "items",
+                    ":itemId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "itemId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"type\": \"Feature\",\n  \"geometry\": {\n    \"type\": \"Point\",\n    \"coordinates\": [\n      1342.193148102948,\n      9363.894383973377\n    ],\n    \"bbox\": [\n      7724.646102681071,\n      1265.587774683996,\n      2821.577756240271,\n      3292.071427597386\n    ]\n  },\n  \"properties\": {},\n  \"time\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "504cc35e-edfb-433f-b503-9a77319673f6",
+          "name": "Ogc Item Controller get Related Ogc Items By Id api/search/v1",
+          "request": {
+            "name": "Ogc Item Controller get Related Ogc Items By Id api/search/v1",
+            "description": {
+              "content": "Returns related items to recordId from the specified site catalog collection that match specified filters",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "search",
+                "v1",
+                "collections",
+                ":collectionId",
+                "items",
+                ":recordId",
+                "related"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "A general text search filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "bbox",
+                  "value": "<string>",
+                  "description": "A bbox filter, must be 4 comma-separated coordinates"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "query parameter that represents a parse-able string of filter expressions, structured according to the <a href=\"https://portal.ogc.org/files/96288\">Common Query Language Specification of the OGC Features API</a>. If filter values must include whitespace, try wrapping the value in single quotes."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "startindex",
+                  "value": "<integer>",
+                  "description": "The initial index of the results to return, starting at 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "The type of resource."
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>",
+                  "description": "The title of resource to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "recordId",
+                  "value": "<string>",
+                  "description": "The recordId of resource to return. recordId could be itemId or itemId_layerId"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Sort results by specific fields. Prefixed by either \"+\" for ascending or \"-\" for descending. If no prefix is provided, \"+\" is assumed."
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<string>",
+                  "description": "Tags for items search"
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "Token to use when accessing the underlying ArcGIS Item that represents the site."
+                },
+                {
+                  "disabled": false,
+                  "key": "openData",
+                  "value": "<string>",
+                  "description": "Boolean flag to get items that are shared to Opendata group"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) Key/id of the collection for which item should be filtered and returned."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bdf48128-3b0b-4b51-9fb8-35c4bad5780c",
+              "name": "A FeatureCollection object describing related items to recordId (in GeoJSON) returned when searching the provided collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search",
+                    "v1",
+                    "collections",
+                    ":collectionId",
+                    "items",
+                    ":recordId",
+                    "related"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bbox",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "type='Feature Service'"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "startindex",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "recordId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "true"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "openData",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) Key/id of the collection for which item should be filtered and returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"FeatureCollection\",\n  \"timestamp\": \"2025-12-02T17:08:21.903Z\",\n  \"numberReturned\": 3126.2685023637137,\n  \"numberMatched\": 5735.6843517954685,\n  \"features\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"Point\",\n        \"coordinates\": [\n          5416.3316523643125,\n          6952.646064419478\n        ],\n        \"bbox\": [\n          4708.333836739206,\n          7395.548283425892,\n          270.60656048952467,\n          3226.4909208359504\n        ]\n      },\n      \"properties\": {},\n      \"time\": {}\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"Point\",\n        \"coordinates\": [\n          1359.9491443611234,\n          199.98325263670404\n        ],\n        \"bbox\": [\n          2307.7220133056976,\n          8836.394717795969,\n          594.7184686143703,\n          5961.355578884159\n        ]\n      },\n      \"properties\": {},\n      \"time\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0de5ca3a-526f-414a-bf13-61fc4363e19b",
+          "name": "Ogc Item Controller get Connected Ogc Items By Id api/search/v1",
+          "request": {
+            "name": "Ogc Item Controller get Connected Ogc Items By Id api/search/v1",
+            "description": {
+              "content": "Returns connected items to recordId from the specified site catalog collection that match specified filters",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "search",
+                "v1",
+                "collections",
+                ":collectionId",
+                "items",
+                ":recordId",
+                "connected"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "A general text search filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "bbox",
+                  "value": "<string>",
+                  "description": "A bbox filter, must be 4 comma-separated coordinates"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "query parameter that represents a parse-able string of filter expressions, structured according to the <a href=\"https://portal.ogc.org/files/96288\">Common Query Language Specification of the OGC Features API</a>. If filter values must include whitespace, try wrapping the value in single quotes."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "The number of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "startindex",
+                  "value": "<integer>",
+                  "description": "The initial index of the results to return, starting at 1."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "The type of resource."
+                },
+                {
+                  "disabled": false,
+                  "key": "title",
+                  "value": "<string>",
+                  "description": "The title of resource to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "recordId",
+                  "value": "<string>",
+                  "description": "The recordId of resource to return. recordId could be itemId or itemId_layerId"
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Sort results by specific fields. Prefixed by either \"+\" for ascending or \"-\" for descending. If no prefix is provided, \"+\" is assumed."
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<string>",
+                  "description": "Tags for items search"
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "Token to use when accessing the underlying ArcGIS Item that represents the site."
+                },
+                {
+                  "disabled": false,
+                  "key": "openData",
+                  "value": "<string>",
+                  "description": "Boolean flag to get items that are shared to Opendata group"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) Key/id of the collection for which item should be filtered and returned."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1a98c352-ce19-4848-a72a-b07ce1865ecf",
+              "name": "A FeatureCollection object describing connected items to recordId (in GeoJSON) returned when searching the provided collection",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search",
+                    "v1",
+                    "collections",
+                    ":collectionId",
+                    "items",
+                    ":recordId",
+                    "connected"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bbox",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "type='Feature Service'"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "startindex",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "title",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "recordId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "true"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "openData",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) Key/id of the collection for which item should be filtered and returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"type\": \"FeatureCollection\",\n  \"timestamp\": \"2025-12-02T17:08:21.903Z\",\n  \"numberReturned\": 3126.2685023637137,\n  \"numberMatched\": 5735.6843517954685,\n  \"features\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"Point\",\n        \"coordinates\": [\n          5416.3316523643125,\n          6952.646064419478\n        ],\n        \"bbox\": [\n          4708.333836739206,\n          7395.548283425892,\n          270.60656048952467,\n          3226.4909208359504\n        ]\n      },\n      \"properties\": {},\n      \"time\": {}\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"Feature\",\n      \"geometry\": {\n        \"type\": \"Point\",\n        \"coordinates\": [\n          1359.9491443611234,\n          199.98325263670404\n        ],\n        \"bbox\": [\n          2307.7220133056976,\n          8836.394717795969,\n          594.7184686143703,\n          5961.355578884159\n        ]\n      },\n      \"properties\": {},\n      \"time\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://hub.arcgis.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "511d6923-d2df-4df1-8696-ffc64f82c354",
+    "name": "Hub Search Catalog OgcItem API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to the Search API. This guide describes how to use the Search API to programmatically query, filter, and search a catalog. Use this explorer to test API endpoints and search the site's catalog without needing to use the site's client search interface. Common uses cases include rendering features on a map in other tools including ArcGIS Map Viewer, GIS desktop applications, OWSLib, and more.\n\n\n\nThe Search API conforms to the new OGC API - Records specification. For further details including definitions and example use cases, see the <a href=\"https://doc.arcgis.com/en/hub/content/federate-data-with-external-catalogs.htm#GUID-EAF833F8-FADA-4EC7-A1CA-F704DC987362\">web help</a>.",
+      "type": "text/plain"
+    }
+  }
+}

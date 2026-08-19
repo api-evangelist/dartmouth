@@ -1,0 +1,170 @@
+{
+  "item": [
+    {
+      "id": "e8dca139-05fd-47d1-8c65-3d0db9c77481",
+      "name": "OgcItemAggregation",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "128ee22e-467e-457e-a32f-a92b29c7fd7e",
+          "name": "Ogc Item Aggregation Controller get Aggregations api/search/v1",
+          "request": {
+            "name": "Ogc Item Aggregation Controller get Aggregations api/search/v1",
+            "description": {
+              "content": "Returns requested aggregations from the specified site catalog collection",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "search",
+                "v1",
+                "collections",
+                ":collectionId",
+                "aggregations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "exampleAggregationName",
+                  "value": "<string>",
+                  "description": "<b>This is an EXAMPLE aggregation expression</b>. More aggregation expressions can be specified by adding additional query parameters, where the name of the parameter is an arbitrary alphabetic aggregation name"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "CQL filter expression that can be used to refine the aggregation search"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Limit the number of results returned for \"bucket\"-based aggregations"
+                },
+                {
+                  "disabled": false,
+                  "key": "token",
+                  "value": "<string>",
+                  "description": "Token to use when accessing the underlying ArcGIS Item that represents the site."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "collectionId",
+                  "description": "(Required) Key/id of the collection for which item should be filtered and returned."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "846e58be-b63f-40e0-a865-4cfb8c881787",
+              "name": "A response describing requested collection aggregations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search",
+                    "v1",
+                    "collections",
+                    ":collectionId",
+                    "aggregations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "exampleAggregationName",
+                      "value": "terms(fields=(access,tags,source))"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "type='Feature Service'"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "token",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "collectionId",
+                      "description": "(Required) Key/id of the collection for which item should be filtered and returned."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"1948-09-12T09:44:27.111Z\",\n  \"aggregations\": {},\n  \"links\": [\n    {\n      \"type\": \"string\",\n      \"rel\": \"string\",\n      \"title\": \"string\",\n      \"href\": \"string\"\n    },\n    {\n      \"type\": \"string\",\n      \"rel\": \"string\",\n      \"title\": \"string\",\n      \"href\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://hub.arcgis.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c7b1d528-a13b-440a-9aa1-e16cd1e2762a",
+    "name": "Hub Search Catalog OgcItemAggregation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Welcome to the Search API. This guide describes how to use the Search API to programmatically query, filter, and search a catalog. Use this explorer to test API endpoints and search the site's catalog without needing to use the site's client search interface. Common uses cases include rendering features on a map in other tools including ArcGIS Map Viewer, GIS desktop applications, OWSLib, and more.\n\n\n\nThe Search API conforms to the new OGC API - Records specification. For further details including definitions and example use cases, see the <a href=\"https://doc.arcgis.com/en/hub/content/federate-data-with-external-catalogs.htm#GUID-EAF833F8-FADA-4EC7-A1CA-F704DC987362\">web help</a>.",
+      "type": "text/plain"
+    }
+  }
+}

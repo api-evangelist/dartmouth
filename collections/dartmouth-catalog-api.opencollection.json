@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hub Search Catalog API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Catalog",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "CatalogController_getSiteCatalog_api/search/v1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://hub.arcgis.com/api/search/v1/catalog",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "ArcGIS token to use when accessing the underlying ArcGIS Item that represents the site."
+              }
+            ]
+          },
+          "docs": "Provides information about the site and its catalog of organized resources and collections."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

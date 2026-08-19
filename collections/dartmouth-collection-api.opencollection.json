@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hub Search Catalog Collection API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Collection",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "CollectionController_getSiteCollections_api/search/v1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://hub.arcgis.com/api/search/v1/collections",
+            "params": [
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "ArcGIS token to use when accessing the underlying ArcGIS Item that represents the site."
+              }
+            ]
+          },
+          "docs": "Lists the collections described in the site's catalog."
+        },
+        {
+          "info": {
+            "name": "CollectionController_getSiteCollectionFromId_api/search/v1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://hub.arcgis.com/api/search/v1/collections/:collectionId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Key/id for the desired collection."
+              },
+              {
+                "name": "token",
+                "value": "",
+                "type": "query",
+                "description": "ArcGIS token to use when accessing the underlying ArcGIS Item that represents the site."
+              }
+            ]
+          },
+          "docs": "Retrieves the collection from a site's catalog with a provided id/key"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
