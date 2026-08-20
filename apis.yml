@@ -73,6 +73,11 @@ apis:
   - Artificial Intelligence
   - LLM
   - Embeddings
+  - OpenAI-Compatible
+  tags_raw:
+  - Artificial Intelligence
+  - LLM
+  - Embeddings
   - OpenAI Compatible
   properties:
   - type: Documentation
