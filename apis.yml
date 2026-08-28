@@ -11,6 +11,18 @@ description: >-
   an OpenAI-compatible Dartmouth Chat AI API for hosted/on-premise models, and
   active GitHub organizations including the Digital Library Technologies Group.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: unknown
