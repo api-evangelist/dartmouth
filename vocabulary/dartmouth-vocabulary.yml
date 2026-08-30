@@ -1,39 +1,51 @@
+generated: '2026-08-30'
+method: derived
+source: openapi/dartmouth-class-search-api-openapi.yml + live probes of courses.dartmouth.edu
+x-operator: institution
 vocabulary:
-  name: Dartmouth Open Data Vocabulary
+  name: Dartmouth Class Search Vocabulary
   description: >-
-    Controlled terms observed in the ArcGIS Hub Search API as exposed through the
-    Dartmouth College Open Data portal (data-dartmouth.opendata.arcgis.com). Terms
-    reflect the OGC API Records / GeoJSON structures returned by the live API and
-    its OpenAPI definition.
-  version: 1.0.0
+    Terms observed in the institution-operated Dartmouth Class Search service
+    (courses.dartmouth.edu). Replaces an earlier vocabulary that described the
+    ArcGIS Hub Search API — Esri's product, not Dartmouth's — which was removed
+    from this repo on 2026-08-30.
+  version: 2.0.0
   terms:
-    - term: Catalog
-      definition: The searchable index of datasets and content items published to the Dartmouth Open Data portal.
-      tags: [ open-data, arcgis ]
-    - term: Collection
-      definition: A named grouping of catalog items (for example dataset, all) that can be queried for items.
-      tags: [ open-data, ogc ]
-    - term: Item
-      definition: A single catalog entry returned as a GeoJSON Feature, representing a dataset, map, app, or document.
-      tags: [ open-data, geojson ]
-    - term: FeatureCollection
-      definition: The GeoJSON container returned by the items endpoint, wrapping a page of Feature items.
-      tags: [ geojson, response ]
-    - term: numberMatched
-      definition: Total number of items matching a query across all pages.
-      tags: [ pagination ]
-    - term: numberReturned
-      definition: Number of items included in the current response page.
-      tags: [ pagination ]
-    - term: geometry
-      definition: The GeoJSON geometry (point, line, polygon, or null) describing an item's spatial footprint.
-      tags: [ geospatial, geojson ]
-    - term: orgId
-      definition: ArcGIS organization identifier owning the published item.
-      tags: [ ownership, arcgis ]
-    - term: access
-      definition: Visibility level of an item, such as public, for the open-data portal.
-      tags: [ access-control ]
-    - term: queryables
-      definition: The set of properties that can be used as filters when searching a collection.
-      tags: [ ogc, filtering ]
+    - term: srcdb
+      definition: >-
+        Term code identifying an academic term, e.g. 202609 for fall 2026. An empty
+        srcdb in a request selects the current term.
+      tags: [ course-catalog, term ]
+    - term: CRN
+      definition: >-
+        Course reference number. The stable identifier for one section of one course
+        in one term; the key used by route=details.
+      tags: [ course-catalog, identifier ]
+    - term: code
+      definition: Course code such as COSC 001 — subject abbreviation plus course number.
+      tags: [ course-catalog ]
+    - term: section
+      definition: One scheduled offering of a course within a term, identified by CRN.
+      tags: [ course-catalog ]
+    - term: schd
+      definition: Schedule type code for a section, e.g. L for lecture.
+      tags: [ course-catalog, code-list ]
+    - term: stat
+      definition: Section status code — A for open, F for full.
+      tags: [ course-catalog, code-list ]
+    - term: meetingTimes
+      definition: >-
+        A JSON-encoded string holding meet_day / start_time / end_time records. It is a
+        string inside JSON, not a nested object, and must be parsed a second time.
+      tags: [ course-catalog, gotcha ]
+    - term: fose
+      definition: >-
+        The course-search application convention Dartmouth Class Search implements, selected
+        by the page=fose query parameter. Shared with several other US institutions, which is
+        why the service shape is not Dartmouth-specific even though the deployment is.
+      tags: [ course-catalog, convention ]
+    - term: fatal
+      definition: >-
+        The member the service returns, inside an HTTP 200, when a request body cannot be
+        parsed. The service's only error signal.
+      tags: [ errors, gotcha ]
