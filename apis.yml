@@ -1,96 +1,157 @@
 ---
 aid: dartmouth
 name: Dartmouth College
+x-type: university
+x-category: Private Research University
 description: >-
-  Dartmouth College is a private Ivy League research university in Hanover,
-  New Hampshire, United States, ranked #243 in the QS World University Rankings
-  2025. Its public developer footprint centers on the DartAPI developer portal
-  (developer.dartmouth.edu), which documents institutional resource APIs (such as
-  a People/directory API) gated behind Dartmouth CAS authentication and manually
-  issued API keys. Dartmouth also operates a public ArcGIS Hub open-data portal,
-  an OpenAI-compatible Dartmouth Chat AI API for hosted/on-premise models, and
-  active GitHub organizations including the Digital Library Technologies Group.
+  Dartmouth College is a private Ivy League research university in Hanover, New Hampshire.
+  Its programmable footprint is small, mostly gated, and largely operated by vendors on
+  Dartmouth's behalf — the ordinary shape for a research university, which is a federation
+  of buyers rather than an API producer. Exactly one institution-operated interface is open
+  to the public without credentials: the JSON backend of Dartmouth Class Search
+  (courses.dartmouth.edu), which returns the full timetable of class meetings keyless and
+  which Dartmouth does not document as an API. Everything else Dartmouth itself runs is
+  behind authentication: DartAPI at api.dartmouth.edu answers 401 on every resource path and
+  issues JWTs only against a hand-issued API key tied to a Dartmouth Service Account, its
+  developer portal at developer.dartmouth.edu redirects to Microsoft Entra SAML so not one
+  reference page is readable from outside, and the Dartmouth Chat AI API requires a
+  DARTMOUTH_API_KEY. The one genuinely open machine-readable artifact Dartmouth publishes is
+  its SAML identity-federation metadata in InCommon. The research and data surfaces —
+  Dartmouth Open Data on ArcGIS Hub, Dartmouth Digital Commons on bepress/Elsevier, Dartmouth
+  Dataverse — are Dartmouth's data on someone else's contract and are recorded here as tenant
+  relationships, not as Dartmouth engineering.
 type: Index
+x-operator-summary:
+  institution: 4
+  tenant: 3
+  vendor: 0
+  placeholder: 0
 deliveryModel:
   model: saas
   open_source: false
-  commercial: true
+  commercial: false
   callable_host: true
-  label: Hosted service · you call their endpoint
+  label: Institution-hosted service · mostly credentialed
   confidence: high
   source:
-  - openapi
-  - pricing
-  generated: '2026-08-28'
-  method: derived
+  - probes
+  generated: '2026-08-30'
+  method: probed
 accessModel:
   pricing: free
-  onboarding: unknown
+  onboarding: manual
   trial: false
   try_now: false
   public: false
-  label: Free
-  confidence: medium
+  label: Free · affiliation-gated except one keyless surface
+  confidence: high
   source:
-  - plans
-  generated: '2026-07-22'
-  method: derived
+  - probes
+  generated: '2026-08-30'
+  method: probed
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dartmouth.png
 url: https://raw.githubusercontent.com/api-evangelist/dartmouth/refs/heads/main/apis.yml
 tags:
-  - Education
-  - Higher Education
   - University
-  - Research
-  - Open Data
-  - Artificial Intelligence
+  - Higher Education
+  - Education
   - United States
   - Ivy League
+  - Private Research University
+  - Course Catalog
+  - Identity Federation
+  - Research Data
+  - Open Data
+  - Artificial Intelligence
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-08-30'
 specificationVersion: '0.23'
 apis:
-- aid: dartmouth:dartapi
-  name: DartAPI Developer Portal
+- aid: dartmouth:class-search
+  name: Dartmouth Class Search API
+  x-operator: institution
   description: >-
-    DartAPI is Dartmouth's institutional API platform, documenting resource APIs such as the People API
-    (directory information like name and email for Dartmouth identities) and a Nextgen API for student
-    employee data. Access requires authentication to the DartAPI Login Service via a JWT bearer token
-    obtained from a manually issued API key, and a Dartmouth Service Account requested through the Help
-    Desk. Documentation pages sit behind Dartmouth CAS single sign-on.
+    The JSON backend of Dartmouth Class Search, the institution's public timetable of class
+    meetings. Keyless: an unauthenticated POST returned 1393 sections for term 202609 on
+    2026-08-30. Two routes — search and details — selected by query parameter, with a JSON
+    criteria body. Dartmouth operates it on its own host and does not publish it as an API,
+    document it, or offer any stability commitment; the OpenAPI here is a probed description,
+    not a contract Dartmouth authored. Errors arrive inside HTTP 200 as a `fatal` member.
+  humanURL: https://courses.dartmouth.edu/
+  baseURL: https://courses.dartmouth.edu
+  tags:
+  - Course Catalog
+  - Timetable
+  - Registrar
+  - Open
+  properties:
+  - type: OpenAPI
+    url: openapi/dartmouth-class-search-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/dartmouth-class-search-response-schema.json
+  - type: Examples
+    url: examples/dartmouth-class-search-example.json
+  - type: Rules
+    url: rules/dartmouth-class-search-rules.yml
+  - type: Vocabulary
+    url: vocabulary/dartmouth-vocabulary.yml
+  - type: Authentication
+    url: authentication/dartmouth-authentication.yml
+  - type: Errors
+    url: errors/dartmouth-errors.yml
+  - type: Documentation
+    url: https://registrar.dartmouth.edu/
+- aid: dartmouth:dartapi
+  name: DartAPI
+  x-operator: institution
+  description: >-
+    Dartmouth's institutional API platform, serving resource APIs such as People (directory
+    identity) and Nextgen class schedules. Live and institution-operated: every resource path
+    on api.dartmouth.edu returns {"message":"Unauthorized"} with HTTP 401, and POST /api/jwt
+    exchanges a hand-issued API key for a bearer JWT (a GET returns 405, confirming it exists).
+    Access requires a Dartmouth Service Account requested through the Help Desk. The reference
+    documentation at developer.dartmouth.edu redirects to Microsoft Entra SAML, so no endpoint
+    inventory is readable from outside the institution and none is claimed here.
   humanURL: https://developer.dartmouth.edu/
+  baseURL: https://api.dartmouth.edu/api/
   tags:
   - Identity
   - Directory
   - People
-  - Authentication
+  - Class Schedules
   - Gated
   properties:
   - type: Documentation
     url: https://developer.dartmouth.edu/
   - type: Authentication
+    url: authentication/dartmouth-authentication.yml
+  - type: SignIn
     url: https://login.dartmouth.edu/cas/login
+  - type: Support
+    url: https://services.dartmouth.edu/TDClient/1806/Portal/Home/
 - aid: dartmouth:chat-ai
   name: Dartmouth Chat AI API
+  x-operator: institution
   description: >-
-    An OpenAI-compatible REST API exposing large language models, embedding models, and reranking models
-    deployed on Dartmouth's compute infrastructure as well as third-party cloud models made available
-    by the institution. It is consumable via standard OpenAI clients and the official langchain_dartmouth
-    Python package, and requires a DARTMOUTH_API_KEY obtained from the developer portal.
+    An OpenAI- and Anthropic-compatible API over large language, embedding and reranking models
+    running on Dartmouth's own research-computing infrastructure, plus third-party cloud models
+    the institution brokers. Base URLs are published by Dartmouth's own client library: text
+    generation at api.dartmouth.edu/api/ai/tgi/, embeddings and reranking at
+    api.dartmouth.edu/api/ai/tei/, model listing at api.dartmouth.edu/api/ai/models/, and cloud
+    models at chat.dartmouth.edu/api/. All return 401 without a DARTMOUTH_API_KEY. No OpenAPI is
+    published — chat.dartmouth.edu/openapi.json returns the Open WebUI single-page shell with
+    content-type text/html, a soft 404, and is deliberately not recorded as a specification.
   humanURL: https://rc.dartmouth.edu/ai/online-resources/using-the-api/
-  baseURL: https://chat.dartmouth.edu/api
+  baseURL: https://api.dartmouth.edu/api/ai/
   tags:
   - Artificial Intelligence
   - LLM
   - Embeddings
   - OpenAI-Compatible
-  tags_raw:
-  - Artificial Intelligence
-  - LLM
-  - Embeddings
-  - OpenAI Compatible
+  - Research Computing
+  - Gated
   properties:
   - type: Documentation
     url: https://rc.dartmouth.edu/ai/online-resources/using-the-api/
@@ -98,195 +159,149 @@ apis:
     url: https://github.com/dartmouth/langchain-dartmouth
   - type: SDKs
     url: https://pypi.org/project/langchain-dartmouth/
-- aid: dartmouth:dartmouth-catalog-api
-  name: Dartmouth College Catalog API
-  description: The Catalog API from Dartmouth College — 1 operation(s) for catalog.
-  humanURL: https://developer.dartmouth.edu/
-  baseURL: https://chat.dartmouth.edu/api
-  tags:
-  - Catalog
-  properties:
-  - type: OpenAPI
-    url: openapi/dartmouth-catalog-api-openapi.yml
-  - type: Documentation
-    url: https://data-dartmouth.opendata.arcgis.com/
-  - type: JSONSchema
-    url: json-schema/dartmouth-itemcollection-schema.json
-  - type: JSONStructure
-    url: json-structure/dartmouth-itemcollection-structure.json
-  - type: Examples
-    url: examples/dartmouth-search-items-example.json
-  - type: Rules
-    url: rules/dartmouth-rules.yml
-  - type: Vocabulary
-    url: vocabulary/dartmouth-vocabulary.yml
-  - type: JSONLD
-    url: json-ld/dartmouth-context.jsonld
-- aid: dartmouth:dartmouth-collection-api
-  name: Dartmouth College Collection API
-  description: The Collection API from Dartmouth College — 2 operation(s) for collection.
-  humanURL: https://developer.dartmouth.edu/
-  baseURL: https://chat.dartmouth.edu/api
-  tags:
-  - Collection
-  properties:
-  - type: OpenAPI
-    url: openapi/dartmouth-collection-api-openapi.yml
-  - type: Documentation
-    url: https://data-dartmouth.opendata.arcgis.com/
-  - type: JSONSchema
-    url: json-schema/dartmouth-itemcollection-schema.json
-  - type: JSONStructure
-    url: json-structure/dartmouth-itemcollection-structure.json
-  - type: Examples
-    url: examples/dartmouth-search-items-example.json
-  - type: Rules
-    url: rules/dartmouth-rules.yml
-  - type: Vocabulary
-    url: vocabulary/dartmouth-vocabulary.yml
-  - type: JSONLD
-    url: json-ld/dartmouth-context.jsonld
-- aid: dartmouth:dartmouth-ogcitem-api
-  name: Dartmouth College OgcItem API
-  description: The OgcItem API from Dartmouth College — 4 operation(s) for ogcitem.
-  humanURL: https://developer.dartmouth.edu/
-  baseURL: https://chat.dartmouth.edu/api
-  tags:
-  - OgcItem
-  properties:
-  - type: OpenAPI
-    url: openapi/dartmouth-ogcitem-api-openapi.yml
-  - type: Documentation
-    url: https://data-dartmouth.opendata.arcgis.com/
-  - type: JSONSchema
-    url: json-schema/dartmouth-itemcollection-schema.json
-  - type: JSONStructure
-    url: json-structure/dartmouth-itemcollection-structure.json
-  - type: Examples
-    url: examples/dartmouth-search-items-example.json
-  - type: Rules
-    url: rules/dartmouth-rules.yml
-  - type: Vocabulary
-    url: vocabulary/dartmouth-vocabulary.yml
-  - type: JSONLD
-    url: json-ld/dartmouth-context.jsonld
-- aid: dartmouth:dartmouth-ogcitemaggregation-api
-  name: Dartmouth College OgcItemAggregation API
+  - type: Authentication
+    url: authentication/dartmouth-authentication.yml
+  - type: AIPolicy
+    url: https://rc.dartmouth.edu/ai/online-resources/policies-bias-responsible-use/
+- aid: dartmouth:identity-federation
+  name: Dartmouth Identity Federation (InCommon)
+  x-operator: institution
   description: >-
-    The OgcItemAggregation API from Dartmouth College — 1 operation(s) for ogcitemaggregation.
-  humanURL: https://developer.dartmouth.edu/
-  baseURL: https://chat.dartmouth.edu/api
+    Dartmouth's SAML identity provider, registered in the InCommon federation under entityID
+    urn:mace:incommon:dartmouth.edu and retrievable as machine-readable metadata over the
+    InCommon MDQ protocol. The document declares SAML 1.1 and SAML 2.0 support, an
+    AttributeAuthorityDescriptor, and SingleSignOnService endpoints on login2.dartmouth.edu.
+    Institution-operated by definition and the one open machine-readable artifact Dartmouth
+    itself publishes.
+  x-operator-note: >-
+    A host-based audit reads mdq.incommon.org as a shared vendor host because other institutions
+    resolve there too. That verdict is wrong for this class: InCommon MDQ is a federation registry
+    that serves each member its OWN metadata under its own entityID, and the document returned for
+    urn:mace:incommon:dartmouth.edu is Dartmouth's, authored by Dartmouth, describing Dartmouth's
+    IdP. Do not reclassify this as vendor and do not remove it.
+  humanURL: https://incommon.org/federation/
+  baseURL: https://mdq.incommon.org/entities/urn%3Amace%3Aincommon%3Adartmouth.edu
   tags:
-  - OgcItemAggregation
+  - Identity Federation
+  - SAML
+  - Shibboleth
+  - InCommon
+  - Open
   properties:
-  - type: OpenAPI
-    url: openapi/dartmouth-ogcitemaggregation-api-openapi.yml
-  - type: Documentation
-    url: https://data-dartmouth.opendata.arcgis.com/
-  - type: JSONSchema
-    url: json-schema/dartmouth-itemcollection-schema.json
-  - type: JSONStructure
-    url: json-structure/dartmouth-itemcollection-structure.json
-  - type: Examples
-    url: examples/dartmouth-search-items-example.json
-  - type: Rules
-    url: rules/dartmouth-rules.yml
-  - type: Vocabulary
-    url: vocabulary/dartmouth-vocabulary.yml
-  - type: JSONLD
-    url: json-ld/dartmouth-context.jsonld
-- aid: dartmouth:dartmouth-ogcroot-api
-  name: Dartmouth College OgcRoot API
-  description: The OgcRoot API from Dartmouth College — 1 operation(s) for ogcroot.
-  humanURL: https://developer.dartmouth.edu/
-  baseURL: https://chat.dartmouth.edu/api
-  tags:
-  - OgcRoot
-  properties:
-  - type: OpenAPI
-    url: openapi/dartmouth-ogcroot-api-openapi.yml
-  - type: Documentation
-    url: https://data-dartmouth.opendata.arcgis.com/
-  - type: JSONSchema
-    url: json-schema/dartmouth-itemcollection-schema.json
-  - type: JSONStructure
-    url: json-structure/dartmouth-itemcollection-structure.json
-  - type: Examples
-    url: examples/dartmouth-search-items-example.json
-  - type: Rules
-    url: rules/dartmouth-rules.yml
-  - type: Vocabulary
-    url: vocabulary/dartmouth-vocabulary.yml
-  - type: JSONLD
-    url: json-ld/dartmouth-context.jsonld
-- aid: dartmouth:dartmouth-ogcrootconformance-api
-  name: Dartmouth College OgcRootConformance API
+  - type: IdentityFederation
+    url: https://mdq.incommon.org/entities/urn%3Amace%3Aincommon%3Adartmouth.edu
+  - type: Conformance
+    url: conformance/dartmouth-education-standards-conformance.yml
+  - type: SignIn
+    url: https://login.dartmouth.edu/cas/login
+- aid: dartmouth:open-data
+  name: Dartmouth Open Data (ArcGIS Hub tenant)
+  x-operator: tenant
   description: >-
-    The OgcRootConformance API from Dartmouth College — 1 operation(s) for ogcrootconformance.
-  humanURL: https://developer.dartmouth.edu/
-  baseURL: https://chat.dartmouth.edu/api
+    Dartmouth's open-data portal, a tenant site on Esri's ArcGIS Hub. The data and the catalog
+    are Dartmouth's; the search API behind it is Esri's Hub Search API on the shared host
+    hub.arcgis.com, which every ArcGIS Hub customer calls. Seven OpenAPIs describing that Esri
+    product were held in this repo under Dartmouth's name and re-based onto chat.dartmouth.edu;
+    they were removed on 2026-08-30 and are not replaced. The relationship is recorded; the
+    vendor's contract is not.
+  humanURL: https://data-dartmouth.opendata.arcgis.com/
   tags:
-  - OgcRootConformance
+  - Open Data
+  - Geospatial
+  - ArcGIS Hub
+  - Tenant
   properties:
-  - type: OpenAPI
-    url: openapi/dartmouth-ogcrootconformance-api-openapi.yml
-  - type: Documentation
+  - type: OpenData
     url: https://data-dartmouth.opendata.arcgis.com/
-  - type: JSONSchema
-    url: json-schema/dartmouth-itemcollection-schema.json
-  - type: JSONStructure
-    url: json-structure/dartmouth-itemcollection-structure.json
-  - type: Examples
-    url: examples/dartmouth-search-items-example.json
-  - type: Rules
-    url: rules/dartmouth-rules.yml
-  - type: Vocabulary
-    url: vocabulary/dartmouth-vocabulary.yml
-  - type: JSONLD
-    url: json-ld/dartmouth-context.jsonld
-- aid: dartmouth:dartmouth-queryable-api
-  name: Dartmouth College Queryable API
-  description: The Queryable API from Dartmouth College — 1 operation(s) for queryable.
-  humanURL: https://developer.dartmouth.edu/
-  baseURL: https://chat.dartmouth.edu/api
+- aid: dartmouth:digital-commons
+  name: Dartmouth Digital Commons (bepress/Elsevier tenant)
+  x-operator: tenant
+  description: >-
+    Dartmouth's institutional repository for scholarly, research and educational output, running
+    on bepress/Elsevier Digital Commons under a Dartmouth subdomain. Its OAI-PMH 2.0 endpoint is
+    live and answers Identify with repositoryName "Dartmouth Digital Commons" and an
+    earliestDatestamp of 2000-01-19 — but adminEmail is dc-support@elsevier.com, so the
+    implementation is the vendor's. Recorded as a Dartmouth-operated repository and an oai-pmh
+    conformance hit, not as Dartmouth engineering.
+  humanURL: https://digitalcommons.dartmouth.edu/
+  baseURL: https://digitalcommons.dartmouth.edu/do/oai/
   tags:
-  - Queryable
+  - Research Repository
+  - OAI-PMH
+  - Institutional Repository
+  - Tenant
   properties:
-  - type: OpenAPI
-    url: openapi/dartmouth-queryable-api-openapi.yml
+  - type: ResearchRepository
+    url: https://digitalcommons.dartmouth.edu/
+  - type: Conformance
+    url: conformance/dartmouth-education-standards-conformance.yml
+- aid: dartmouth:dataverse
+  name: Dartmouth Dataverse
+  x-operator: tenant
+  description: >-
+    Dartmouth's research-data repository, a Dataverse 6.11 deployment on Dartmouth's own host.
+    The native Dataverse API answers unauthenticated — /api/info/version returns 200 with the
+    running version — but the contract is the Dataverse project's, shipped identically by every
+    Dataverse installation, so no generic Dataverse specification is saved under Dartmouth.
+    The deployment's OAI-PMH path is present and broken: /oai?verb=Identify returns a Payara
+    503 error page rather than an OAI-PMH document.
+  humanURL: https://dataverse.dartmouth.edu/
+  baseURL: https://dataverse.dartmouth.edu/api/info/version
+  tags:
+  - Research Data
+  - Dataverse
+  - Research Repository
+  - Tenant
+  properties:
+  - type: ResearchRepository
+    url: https://dataverse.dartmouth.edu/
   - type: Documentation
-    url: https://data-dartmouth.opendata.arcgis.com/
-  - type: JSONSchema
-    url: json-schema/dartmouth-itemcollection-schema.json
-  - type: JSONStructure
-    url: json-structure/dartmouth-itemcollection-structure.json
-  - type: Examples
-    url: examples/dartmouth-search-items-example.json
-  - type: Rules
-    url: rules/dartmouth-rules.yml
-  - type: Vocabulary
-    url: vocabulary/dartmouth-vocabulary.yml
-  - type: JSONLD
-    url: json-ld/dartmouth-context.jsonld
+    url: https://www.library.dartmouth.edu/research-create/data-services/data-repositories
 common:
-  - type: AgenticAccess
-    url: agentic-access/dartmouth-agentic-access.yml
-  - type: DomainSecurity
-    url: security/dartmouth-domain-security.yml
   - type: Website
     url: https://home.dartmouth.edu/
+  - type: DeveloperPortal
+    url: https://developer.dartmouth.edu/
+  - type: CourseCatalog
+    url: https://courses.dartmouth.edu/
+  - type: IdentityFederation
+    url: https://mdq.incommon.org/entities/urn%3Amace%3Aincommon%3Adartmouth.edu
+  - type: OpenData
+    url: https://data-dartmouth.opendata.arcgis.com/
+  - type: ResearchRepository
+    url: https://digitalcommons.dartmouth.edu/
+  - type: ResearchComputing
+    url: https://rc.dartmouth.edu/
+  - type: AITooling
+    url: https://chat.dartmouth.edu/
+  - type: AIPolicy
+    url: https://policies.dartmouth.edu/policy/guidelines-using-generative-artificial-intelligence-genai-coursework
+  - type: LibraryCatalog
+    url: https://www.library.dartmouth.edu/
   - type: GitHub
     url: https://github.com/dartmouth
   - type: GitHub
     url: https://github.com/dartmouth-dltg
-  - type: DeveloperPortal
-    url: https://developer.dartmouth.edu/
+  - type: Support
+    url: https://services.dartmouth.edu/TDClient/1806/Portal/Home/
+  - type: PrivacyPolicy
+    url: https://home.dartmouth.edu/privacy
+  - type: SignIn
+    url: https://login.dartmouth.edu/cas/login
   - type: LinkedIn
     url: https://www.linkedin.com/school/dartmouth-college/
   - type: Twitter
     url: https://x.com/dartmouth
+  - type: Blog
+    url: https://home.dartmouth.edu/rss.xml
+  - type: Conformance
+    url: conformance/dartmouth-education-standards-conformance.yml
   - type: Authentication
-    url: https://login.dartmouth.edu/cas/login
+    url: authentication/dartmouth-authentication.yml
+  - type: Errors
+    url: errors/dartmouth-errors.yml
+  - type: DomainSecurity
+    url: security/dartmouth-domain-security.yml
   - type: Plans
     url: plans/dartmouth-plans-pricing.yml
   - type: RateLimits
@@ -295,8 +310,43 @@ common:
     url: finops/dartmouth-finops.yml
   - type: Review
     url: review.yml
-  - url: https://home.dartmouth.edu/rss.xml
-    type: Blog
+x-coverage:
+  state: gated
+  reason: auth_required
+  detail: >-
+    Dartmouth operates real APIs and almost all of them are closed. developer.dartmouth.edu,
+    including every /docs/ page, 302s to Microsoft Entra SAML, so DartAPI's endpoint inventory
+    cannot be read from outside the institution and none is asserted here. api.dartmouth.edu
+    answers 401 on every resource path and chat.dartmouth.edu/api answers 401 without a
+    DARTMOUTH_API_KEY — both live, both credentialed, neither describable. What could be
+    captured was captured: the keyless Dartmouth Class Search backend, described from live
+    probes into a full artifact set, and Dartmouth's InCommon SAML metadata. The research and
+    data surfaces are tenant deployments whose contracts belong to Esri, bepress/Elsevier and
+    the Dataverse project. Seven ArcGIS Hub Search OpenAPIs plus 26 files derived from them
+    were removed from this repo on 2026-08-30; they described Esri's product, were re-based
+    onto chat.dartmouth.edu, and their sample data was a StoryMap about a park in Panama City.
+  evidence:
+    - url: https://courses.dartmouth.edu/api/?page=fose&route=search
+      status: 200
+    - url: https://api.dartmouth.edu/api/people/
+      status: 401
+    - url: https://api.dartmouth.edu/api/jwt
+      status: 405
+    - url: https://chat.dartmouth.edu/api/models
+      status: 401
+    - url: https://developer.dartmouth.edu/docs/100_basic/010_introduction.md
+      status: 302
+    - url: https://mdq.incommon.org/entities/urn%3Amace%3Aincommon%3Adartmouth.edu
+      status: 200
+    - url: https://digitalcommons.dartmouth.edu/do/oai/?verb=Identify
+      status: 200
+    - url: https://dataverse.dartmouth.edu/api/info/version
+      status: 200
+    - url: https://dataverse.dartmouth.edu/oai?verb=Identify
+      status: 503
+    - url: https://chat.dartmouth.edu/openapi.json
+      status: 200
+      note: soft 404 — returns the Open WebUI SPA shell as text/html, not a specification
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
