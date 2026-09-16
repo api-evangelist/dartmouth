@@ -69,51 +69,17 @@ created: '2026-06-03'
 modified: '2026-08-30'
 specificationVersion: '0.23'
 apis:
-- aid: dartmouth:class-search
-  name: Dartmouth Class Search API
-  x-operator: institution
-  description: >-
-    The JSON backend of Dartmouth Class Search, the institution's public timetable of class
-    meetings. Keyless: an unauthenticated POST returned 1393 sections for term 202609 on
-    2026-08-30. Two routes — search and details — selected by query parameter, with a JSON
-    criteria body. Dartmouth operates it on its own host and does not publish it as an API,
-    document it, or offer any stability commitment; the OpenAPI here is a probed description,
-    not a contract Dartmouth authored. Errors arrive inside HTTP 200 as a `fatal` member.
-  humanURL: https://courses.dartmouth.edu/
-  baseURL: https://courses.dartmouth.edu
-  tags:
-  - Course Catalog
-  - Timetable
-  - Registrar
-  - Open
-  properties:
-  - type: OpenAPI
-    url: openapi/dartmouth-class-search-api-openapi.yml
-  - type: JSONSchema
-    url: json-schema/dartmouth-class-search-response-schema.json
-  - type: Examples
-    url: examples/dartmouth-class-search-example.json
-  - type: Rules
-    url: rules/dartmouth-class-search-rules.yml
-  - type: Vocabulary
-    url: vocabulary/dartmouth-vocabulary.yml
-  - type: Authentication
-    url: authentication/dartmouth-authentication.yml
-  - type: Errors
-    url: errors/dartmouth-errors.yml
-  - type: Documentation
-    url: https://registrar.dartmouth.edu/
 - aid: dartmouth:dartapi
   name: DartAPI
   x-operator: institution
   description: >-
-    Dartmouth's institutional API platform, serving resource APIs such as People (directory
-    identity) and Nextgen class schedules. Live and institution-operated: every resource path
-    on api.dartmouth.edu returns {"message":"Unauthorized"} with HTTP 401, and POST /api/jwt
-    exchanges a hand-issued API key for a bearer JWT (a GET returns 405, confirming it exists).
-    Access requires a Dartmouth Service Account requested through the Help Desk. The reference
-    documentation at developer.dartmouth.edu redirects to Microsoft Entra SAML, so no endpoint
-    inventory is readable from outside the institution and none is claimed here.
+    Dartmouth's institutional API platform, serving resource APIs such as People (directory identity)
+    and Nextgen class schedules. Live and institution-operated: every resource path on api.dartmouth.edu
+    returns {"message":"Unauthorized"} with HTTP 401, and POST /api/jwt exchanges a hand-issued API key
+    for a bearer JWT (a GET returns 405, confirming it exists). Access requires a Dartmouth Service Account
+    requested through the Help Desk. The reference documentation at developer.dartmouth.edu redirects
+    to Microsoft Entra SAML, so no endpoint inventory is readable from outside the institution and none
+    is claimed here.
   humanURL: https://developer.dartmouth.edu/
   baseURL: https://api.dartmouth.edu/api/
   tags:
@@ -135,14 +101,13 @@ apis:
   name: Dartmouth Chat AI API
   x-operator: institution
   description: >-
-    An OpenAI- and Anthropic-compatible API over large language, embedding and reranking models
-    running on Dartmouth's own research-computing infrastructure, plus third-party cloud models
-    the institution brokers. Base URLs are published by Dartmouth's own client library: text
-    generation at api.dartmouth.edu/api/ai/tgi/, embeddings and reranking at
-    api.dartmouth.edu/api/ai/tei/, model listing at api.dartmouth.edu/api/ai/models/, and cloud
-    models at chat.dartmouth.edu/api/. All return 401 without a DARTMOUTH_API_KEY. No OpenAPI is
-    published — chat.dartmouth.edu/openapi.json returns the Open WebUI single-page shell with
-    content-type text/html, a soft 404, and is deliberately not recorded as a specification.
+    An OpenAI- and Anthropic-compatible API over large language, embedding and reranking models running
+    on Dartmouth's own research-computing infrastructure, plus third-party cloud models the institution
+    brokers. Base URLs are published by Dartmouth's own client library: text generation at api.dartmouth.edu/api/ai/tgi/,
+    embeddings and reranking at api.dartmouth.edu/api/ai/tei/, model listing at api.dartmouth.edu/api/ai/models/,
+    and cloud models at chat.dartmouth.edu/api/. All return 401 without a DARTMOUTH_API_KEY. No OpenAPI
+    is published — chat.dartmouth.edu/openapi.json returns the Open WebUI single-page shell with content-type
+    text/html, a soft 404, and is deliberately not recorded as a specification.
   humanURL: https://rc.dartmouth.edu/ai/online-resources/using-the-api/
   baseURL: https://api.dartmouth.edu/api/ai/
   tags:
@@ -167,18 +132,17 @@ apis:
   name: Dartmouth Identity Federation (InCommon)
   x-operator: institution
   description: >-
-    Dartmouth's SAML identity provider, registered in the InCommon federation under entityID
-    urn:mace:incommon:dartmouth.edu and retrievable as machine-readable metadata over the
-    InCommon MDQ protocol. The document declares SAML 1.1 and SAML 2.0 support, an
-    AttributeAuthorityDescriptor, and SingleSignOnService endpoints on login2.dartmouth.edu.
-    Institution-operated by definition and the one open machine-readable artifact Dartmouth
-    itself publishes.
+    Dartmouth's SAML identity provider, registered in the InCommon federation under entityID urn:mace:incommon:dartmouth.edu
+    and retrievable as machine-readable metadata over the InCommon MDQ protocol. The document declares
+    SAML 1.1 and SAML 2.0 support, an AttributeAuthorityDescriptor, and SingleSignOnService endpoints
+    on login2.dartmouth.edu. Institution-operated by definition and the one open machine-readable artifact
+    Dartmouth itself publishes.
   x-operator-note: >-
-    A host-based audit reads mdq.incommon.org as a shared vendor host because other institutions
-    resolve there too. That verdict is wrong for this class: InCommon MDQ is a federation registry
-    that serves each member its OWN metadata under its own entityID, and the document returned for
-    urn:mace:incommon:dartmouth.edu is Dartmouth's, authored by Dartmouth, describing Dartmouth's
-    IdP. Do not reclassify this as vendor and do not remove it.
+    A host-based audit reads mdq.incommon.org as a shared vendor host because other institutions resolve
+    there too. That verdict is wrong for this class: InCommon MDQ is a federation registry that serves
+    each member its OWN metadata under its own entityID, and the document returned for urn:mace:incommon:dartmouth.edu
+    is Dartmouth's, authored by Dartmouth, describing Dartmouth's IdP. Do not reclassify this as vendor
+    and do not remove it.
   humanURL: https://incommon.org/federation/
   baseURL: https://mdq.incommon.org/entities/urn%3Amace%3Aincommon%3Adartmouth.edu
   tags:
@@ -198,12 +162,11 @@ apis:
   name: Dartmouth Open Data (ArcGIS Hub tenant)
   x-operator: tenant
   description: >-
-    Dartmouth's open-data portal, a tenant site on Esri's ArcGIS Hub. The data and the catalog
-    are Dartmouth's; the search API behind it is Esri's Hub Search API on the shared host
-    hub.arcgis.com, which every ArcGIS Hub customer calls. Seven OpenAPIs describing that Esri
-    product were held in this repo under Dartmouth's name and re-based onto chat.dartmouth.edu;
-    they were removed on 2026-08-30 and are not replaced. The relationship is recorded; the
-    vendor's contract is not.
+    Dartmouth's open-data portal, a tenant site on Esri's ArcGIS Hub. The data and the catalog are Dartmouth's;
+    the search API behind it is Esri's Hub Search API on the shared host hub.arcgis.com, which every ArcGIS
+    Hub customer calls. Seven OpenAPIs describing that Esri product were held in this repo under Dartmouth's
+    name and re-based onto chat.dartmouth.edu; they were removed on 2026-08-30 and are not replaced. The
+    relationship is recorded; the vendor's contract is not.
   humanURL: https://data-dartmouth.opendata.arcgis.com/
   tags:
   - Open Data
@@ -217,12 +180,11 @@ apis:
   name: Dartmouth Digital Commons (bepress/Elsevier tenant)
   x-operator: tenant
   description: >-
-    Dartmouth's institutional repository for scholarly, research and educational output, running
-    on bepress/Elsevier Digital Commons under a Dartmouth subdomain. Its OAI-PMH 2.0 endpoint is
-    live and answers Identify with repositoryName "Dartmouth Digital Commons" and an
-    earliestDatestamp of 2000-01-19 — but adminEmail is dc-support@elsevier.com, so the
-    implementation is the vendor's. Recorded as a Dartmouth-operated repository and an oai-pmh
-    conformance hit, not as Dartmouth engineering.
+    Dartmouth's institutional repository for scholarly, research and educational output, running on bepress/Elsevier
+    Digital Commons under a Dartmouth subdomain. Its OAI-PMH 2.0 endpoint is live and answers Identify
+    with repositoryName "Dartmouth Digital Commons" and an earliestDatestamp of 2000-01-19 — but adminEmail
+    is dc-support@elsevier.com, so the implementation is the vendor's. Recorded as a Dartmouth-operated
+    repository and an oai-pmh conformance hit, not as Dartmouth engineering.
   humanURL: https://digitalcommons.dartmouth.edu/
   baseURL: https://digitalcommons.dartmouth.edu/do/oai/
   tags:
@@ -239,12 +201,11 @@ apis:
   name: Dartmouth Dataverse
   x-operator: tenant
   description: >-
-    Dartmouth's research-data repository, a Dataverse 6.11 deployment on Dartmouth's own host.
-    The native Dataverse API answers unauthenticated — /api/info/version returns 200 with the
-    running version — but the contract is the Dataverse project's, shipped identically by every
-    Dataverse installation, so no generic Dataverse specification is saved under Dartmouth.
-    The deployment's OAI-PMH path is present and broken: /oai?verb=Identify returns a Payara
-    503 error page rather than an OAI-PMH document.
+    Dartmouth's research-data repository, a Dataverse 6.11 deployment on Dartmouth's own host. The native
+    Dataverse API answers unauthenticated — /api/info/version returns 200 with the running version — but
+    the contract is the Dataverse project's, shipped identically by every Dataverse installation, so no
+    generic Dataverse specification is saved under Dartmouth. The deployment's OAI-PMH path is present
+    and broken: /oai?verb=Identify returns a Payara 503 error page rather than an OAI-PMH document.
   humanURL: https://dataverse.dartmouth.edu/
   baseURL: https://dataverse.dartmouth.edu/api/info/version
   tags:
@@ -257,6 +218,16 @@ apis:
     url: https://dataverse.dartmouth.edu/
   - type: Documentation
     url: https://www.library.dartmouth.edu/research-create/data-services/data-repositories
+- aid: dartmouth:dartmouth-classsearch-api
+  name: Dartmouth College Class Search API
+  description: Search and detail operations over the Dartmouth timetable of class meetings.
+  humanURL: https://courses.dartmouth.edu/
+  baseURL: https://courses.dartmouth.edu
+  tags:
+  - ClassSearch
+  properties:
+  - type: OpenAPI
+    url: openapi/dartmouth-classsearch-api-openapi.yml
 common:
   - type: Website
     url: https://home.dartmouth.edu/
