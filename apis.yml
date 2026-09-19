@@ -172,6 +172,11 @@ apis:
   - Open Data
   - Geospatial
   - ArcGIS Hub
+  - Tenants
+  tags_raw:
+  - Open Data
+  - Geospatial
+  - ArcGIS Hub
   - Tenant
   properties:
   - type: OpenData
@@ -188,6 +193,11 @@ apis:
   humanURL: https://digitalcommons.dartmouth.edu/
   baseURL: https://digitalcommons.dartmouth.edu/do/oai/
   tags:
+  - Research Repository
+  - OAI-PMH
+  - Institutional Repository
+  - Tenants
+  tags_raw:
   - Research Repository
   - OAI-PMH
   - Institutional Repository
@@ -212,6 +222,11 @@ apis:
   - Research Data
   - Dataverse
   - Research Repository
+  - Tenants
+  tags_raw:
+  - Research Data
+  - Dataverse
+  - Research Repository
   - Tenant
   properties:
   - type: ResearchRepository
@@ -224,6 +239,8 @@ apis:
   humanURL: https://courses.dartmouth.edu/
   baseURL: https://courses.dartmouth.edu
   tags:
+  - Class Search
+  tags_raw:
   - ClassSearch
   properties:
   - type: OpenAPI
