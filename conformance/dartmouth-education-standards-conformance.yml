@@ -1,0 +1,86 @@
+# Education-regime domain standard conformance for Dartmouth College.
+# REWARD-ONLY. Every hit below points at a location that was fetched and read
+# on 2026-08-30. Standards with no evidence are recorded as not_found, not
+# omitted and not assumed.
+generated: '2026-08-30'
+method: probed
+source: live HTTP probes of Dartmouth-operated and Dartmouth-tenant hosts
+regime: education
+provider: Dartmouth College
+providerId: dartmouth
+standards:
+  - standard: saml
+    status: conformant
+    x-operator: institution
+    evidence:
+      url: https://mdq.incommon.org/entities/urn%3Amace%3Aincommon%3Adartmouth.edu
+      status: 200
+      content_type: application/samlmetadata+xml
+      detail: >-
+        Dartmouth publishes SAML 2.0 and SAML 1.1 IdP metadata under entityID
+        urn:mace:incommon:dartmouth.edu, retrievable over the InCommon MDQ protocol.
+        The document declares mdui:DisplayName "Dartmouth College", an IDPSSODescriptor
+        with protocolSupportEnumeration for SAML 1.1 and SAML 2.0, an
+        AttributeAuthorityDescriptor, and SingleSignOnService endpoints at
+        https://login2.dartmouth.edu/cas/idp/profile/SAML2/{Redirect,POST,POST-SimpleSign,SOAP}/…
+  - standard: shibboleth
+    status: conformant
+    x-operator: institution
+    evidence:
+      url: https://mdq.incommon.org/entities/urn%3Amace%3Aincommon%3Adartmouth.edu
+      status: 200
+      detail: >-
+        Dartmouth is a member entity of the InCommon Shibboleth federation and its
+        metadata carries a Shibboleth errorURL (https://outage.dartmouth.edu/?p_error_code=SHIB-1)
+        plus SAML1 ArtifactResolution and AttributeQuery endpoints. The IdP itself is an
+        Apereo CAS deployment at login2.dartmouth.edu serving the Shibboleth/SAML profiles.
+  - standard: oai-pmh
+    status: conformant
+    x-operator: tenant
+    evidence:
+      url: https://digitalcommons.dartmouth.edu/do/oai/?verb=Identify
+      status: 200
+      detail: >-
+        A valid OAI-PMH 2.0 Identify response, repositoryName "Dartmouth Digital Commons",
+        earliestDatestamp 2000-01-19, granularity YYYY-MM-DDThh:mm:ssZ. The endpoint is on
+        Dartmouth's own subdomain but the adminEmail is dc-support@elsevier.com — the
+        repository software and the OAI implementation are bepress/Elsevier Digital Commons.
+        Credited to Dartmouth as an operated repository, not as Dartmouth engineering.
+  - standard: oai-pmh
+    status: not_conformant
+    x-operator: tenant
+    note: second OAI-PMH surface, recorded because presence is not liveness
+    evidence:
+      url: https://dataverse.dartmouth.edu/oai?verb=Identify
+      status: 503
+      detail: >-
+        Dartmouth Dataverse exposes the standard Dataverse /oai path, but a real
+        OAI-PMH verb returns a Payara 503 error report rather than an OAI-PMH document.
+        The portal itself is healthy (/api/info/version returns 200). Recorded as a
+        non-hit: the endpoint exists and does not answer.
+  - standard: scim
+    status: not_found
+  - standard: lti
+    status: not_found
+  - standard: oneroster
+    status: not_found
+  - standard: ed-fi
+    status: not_found
+  - standard: caliper
+    status: not_found
+  - standard: qti
+    status: not_found
+  - standard: orcid
+    status: not_found
+    detail: >-
+      Dartmouth Digital Commons and Dartmouth Dataverse both surface author identifiers,
+      but no ORCID-conformant machine-readable interface operated by Dartmouth was found
+      on a keyless probe.
+  - standard: datacite
+    status: not_found
+    detail: >-
+      Dartmouth Dataverse mints DOIs, which implies a DataCite relationship upstream, but
+      no Dartmouth-operated DataCite interface was reachable without credentials. Not
+      credited on inference.
+  - standard: crossref
+    status: not_found

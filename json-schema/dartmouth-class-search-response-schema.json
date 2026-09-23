@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/dartmouth/main/json-schema/dartmouth-class-search-response-schema.json",
+  "x-generated": "2026-08-30",
+  "x-method": "derived",
+  "x-source": "openapi/dartmouth-class-search-api-openapi.yml",
+  "x-operator": "institution",
+  "title": "Dartmouth Class Search response",
+  "description": "A page of class sections returned by the institution-operated Dartmouth Class Search service (courses.dartmouth.edu). Derived from a live probe of the endpoint on 2026-08-30; Dartmouth publishes no schema for it.",
+  "type": "object",
+  "required": ["srcdb", "count", "results"],
+  "properties": {
+    "srcdb": {
+      "type": "string",
+      "description": "Term code the results belong to, e.g. 202609."
+    },
+    "count": {
+      "type": "integer",
+      "description": "Number of sections in this response."
+    },
+    "results": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/SectionSummary" }
+    }
+  },
+  "$defs": {
+    "SectionSummary": {
+      "type": "object",
+      "description": "One class section.",
+      "properties": {
+        "key": { "type": "string" },
+        "code": { "type": "string", "description": "Course code, e.g. COSC 001." },
+        "title": { "type": "string" },
+        "crn": { "type": "string", "description": "Course reference number; the section identifier." },
+        "no": { "type": "string", "description": "Section number." },
+        "schd": { "type": "string", "description": "Schedule type code." },
+        "stat": { "type": "string", "description": "Status code; A open, F full." },
+        "isCancelled": { "type": "string" },
+        "meets": { "type": "string", "description": "Human-readable meeting pattern; contains HTML markup." },
+        "meetingTimes": {
+          "type": "string",
+          "description": "A JSON-encoded STRING holding an array of {meet_day,start_time,end_time} records. It is not a nested object and must be parsed a second time."
+        },
+        "instr": { "type": "string", "description": "Instructor of record." },
+        "start_date": { "type": "string", "format": "date" },
+        "end_date": { "type": "string", "format": "date" },
+        "section": { "type": "string" },
+        "srcdb": { "type": "string" },
+        "grid__enroll": { "type": "string" },
+        "grid__max_enroll": { "type": "string" },
+        "grid__wait_count": { "type": "string" },
+        "grid__credit_hours": { "type": "string" },
+        "grid__term_description": { "type": "string" },
+        "grid__attribute_codes": { "type": "string" },
+        "grid__status_code": { "type": "string" },
+        "cart_opts": { "type": "string", "description": "JSON-encoded string of registration cart options." }
+      }
+    }
+  }
+}

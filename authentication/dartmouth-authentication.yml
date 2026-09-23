@@ -1,0 +1,53 @@
+generated: '2026-08-30'
+method: probed
+source: live HTTP probes of api.dartmouth.edu, chat.dartmouth.edu, developer.dartmouth.edu, courses.dartmouth.edu
+provider: Dartmouth College
+providerId: dartmouth
+description: >-
+  How Dartmouth's institution-operated interfaces authenticate. Every row was
+  established by calling the surface, not by reading a claim about it.
+surfaces:
+  - name: Dartmouth Class Search API
+    host: courses.dartmouth.edu
+    x-operator: institution
+    scheme: none
+    detail: >-
+      Keyless and unauthenticated. A POST with no credentials returns a full page of
+      class sections (HTTP 200, 1393 sections for term 202609 on 2026-08-30). The only
+      genuinely open programmable surface Dartmouth operates that this profile found.
+  - name: DartAPI
+    host: api.dartmouth.edu
+    x-operator: institution
+    scheme: http
+    bearerFormat: JWT
+    detail: >-
+      Every resource path returns {"message":"Unauthorized"} with HTTP 401 to an
+      unauthenticated caller (/api/people/, /api/nextgen/class_schedules/, /api/ai/).
+      A JWT is minted by exchanging a manually issued API key at POST
+      https://api.dartmouth.edu/api/jwt — a GET on that path returns 405 Method Not
+      Allowed, confirming the endpoint exists and is POST-only. The API key itself is
+      issued by hand through the Dartmouth Help Desk against a Dartmouth Service Account.
+  - name: Dartmouth Chat AI API
+    host: chat.dartmouth.edu
+    x-operator: institution
+    scheme: http
+    bearerFormat: API key
+    detail: >-
+      /api/models and /api/v1/models return {"detail":"Not authenticated"} with HTTP 401.
+      Requires DARTMOUTH_API_KEY. Affiliation-gated; not self-service.
+  - name: DartAPI developer portal
+    host: developer.dartmouth.edu
+    x-operator: institution
+    scheme: saml
+    detail: >-
+      The portal, including its /docs/ pages, 302s to Microsoft Entra ID SAML2 at
+      login.microsoftonline.com (tenant 995b0936-48d6-40e5-a31e-bf689ec9446f). No
+      documentation page is readable without a Dartmouth NetID, so the API reference
+      cannot be verified from outside the institution.
+  - name: Institutional SSO / identity federation
+    host: login.dartmouth.edu, login2.dartmouth.edu
+    x-operator: institution
+    scheme: saml
+    detail: >-
+      Apereo CAS fronting Microsoft Entra ID for interactive login, and publishing
+      SAML2/SAML1.1 IdP metadata into InCommon as urn:mace:incommon:dartmouth.edu.

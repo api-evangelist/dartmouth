@@ -1,0 +1,270 @@
+openapi: 3.2.0
+info:
+  title: Dartmouth Class Search API
+  version: '2026-08-30'
+  summary: Keyless JSON search over the Dartmouth College timetable of class meetings.
+  description: The JSON backend of Dartmouth Class Search (https://courses.dartmouth.edu), the institution's public timetable of class meetings.
+  contact:
+    name: Dartmouth Arts & Sciences Registrar
+    url: https://registrar.dartmouth.edu/
+  termsOfService: https://home.dartmouth.edu/privacy
+servers:
+- url: https://courses.dartmouth.edu
+  description: Dartmouth Class Search (institution-operated, keyless)
+tags:
+- name: ClassSearch
+  description: Search and detail operations over the Dartmouth timetable of class meetings.
+paths:
+  /api/:
+    post:
+      tags:
+      - ClassSearch
+      operationId: classSearch
+      summary: Search or describe class sections
+      description: Single entry point for the class-search service. `route=search` returns a page of matching sections for a term; `route=details` returns the full record for one section identified by CRN. No authentication is sent or accepted.
+      parameters:
+      - name: page
+        in: query
+        required: true
+        description: Application selector. Only `fose` was observed to respond.
+        schema:
+          type: string
+          enum:
+          - fose
+      - name: route
+        in: query
+        required: true
+        description: Operation selector.
+        schema:
+          type: string
+          enum:
+          - search
+          - details
+      requestBody:
+        required: true
+        description: Criteria object. For `route=search`, `criteria` is a list of field/value filters (`subject`, and an empty list returns the whole term). For `route=details`, the body identifies a single section by `srcdb` and `key`/`matched` CRN.
+        content:
+          application/json:
+            schema:
+              oneOf:
+              - $ref: '#/components/schemas/SearchRequest'
+              - $ref: '#/components/schemas/DetailsRequest'
+            examples:
+              wholeTerm:
+                summary: Every section in the current term
+                value:
+                  other:
+                    srcdb: ''
+                  criteria: []
+              bySubject:
+                summary: Sections for one subject code
+                value:
+                  other:
+                    srcdb: ''
+                  criteria:
+                  - field: subject
+                    value: COSC
+              details:
+                summary: Full record for one section
+                value:
+                  group: code:COSC 001
+                  key: crn:91925
+                  srcdb: '202609'
+                  matched: crn:91925
+      responses:
+        '200':
+          description: A search page or a section detail record. Note that a malformed body also returns HTTP 200 with a `fatal` member — the service does not use status codes to signal request errors.
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - $ref: '#/components/schemas/SearchResponse'
+                - $ref: '#/components/schemas/SectionDetail'
+                - $ref: '#/components/schemas/FatalResponse'
+components:
+  schemas:
+    SectionDetail:
+      type: object
+      description: Full record for one section from `route=details`. Many members carry rendered HTML rather than structured data.
+      properties:
+        crn:
+          type: string
+        code:
+          type: string
+        section:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        hours_html:
+          type: string
+        seats:
+          type: string
+          description: Enrollment and availability
+          as HTML.: null
+        status:
+          type: string
+        instmode:
+          type: string
+          description: Instructional mode.
+        meeting_html:
+          type: string
+        instructordetail_html:
+          type: string
+        registration_restrictions:
+          type: string
+        registration_options:
+          type: string
+        learning_objectives:
+          type: string
+        required_materials:
+          type: string
+        course_coreqs:
+          type: string
+        section_coreqs:
+          type: string
+        section_attributes:
+          type: string
+        clssnotes:
+          type: string
+        all_sections:
+          type: string
+    SearchResponse:
+      type: object
+      required:
+      - srcdb
+      - count
+      - results
+      properties:
+        srcdb:
+          type: string
+          description: Term the results belong to.
+        count:
+          type: integer
+          description: Number of sections returned.
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SectionSummary'
+    DetailsRequest:
+      type: object
+      required:
+      - srcdb
+      - key
+      properties:
+        group:
+          type: string
+          description: Course grouping key, e.g. `code:COSC 001`.
+        key:
+          type: string
+          description: Section key, e.g. `crn:91925`.
+        srcdb:
+          type: string
+          description: Term code, e.g. `202609`.
+        matched:
+          type: string
+          description: The matched key echoed back, e.g. `crn:91925`.
+    SectionSummary:
+      type: object
+      description: One class section as returned by `route=search`.
+      properties:
+        key:
+          type: string
+        code:
+          type: string
+          description: Course code, e.g. COSC 001.
+        title:
+          type: string
+        crn:
+          type: string
+          description: Course reference number
+          the section identifier.: null
+        false:
+          type: string
+          description: Section number.
+        schd:
+          type: string
+          description: Schedule type code (L lecture
+          etc.).: null
+        stat:
+          type: string
+          description: Status code (A open, F full).
+        isCancelled:
+          type: string
+        meets:
+          type: string
+          description: Human-readable meeting pattern
+          contains HTML.: null
+        meetingTimes:
+          type: string
+          description: JSON-encoded STRING (not a nested object) holding an array of `{meet_day,start_time,end_time}` records. Must be parsed a second time.
+        instr:
+          type: string
+          description: Instructor of record.
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        section:
+          type: string
+        srcdb:
+          type: string
+        grid__enroll:
+          type: string
+        grid__max_enroll:
+          type: string
+        grid__wait_count:
+          type: string
+        grid__credit_hours:
+          type: string
+        grid__term_description:
+          type: string
+        grid__attribute_codes:
+          type: string
+        grid__status_code:
+          type: string
+        cart_opts:
+          type: string
+          description: JSON-encoded string of registration cart options.
+    FatalResponse:
+      type: object
+      description: Returned with HTTP 200 when the request body cannot be parsed. The only error signal the service emits.
+      required:
+      - fatal
+      properties:
+        fatal:
+          type: string
+          example: Could not parse incoming payload as JSON
+    SearchRequest:
+      type: object
+      required:
+      - criteria
+      properties:
+        other:
+          type: object
+          description: Term selector. An empty `srcdb` selects the current term.
+          properties:
+            srcdb:
+              type: string
+              description: Term code, e.g. `202609`. Empty string means current term.
+        criteria:
+          type: array
+          description: Filters to apply. An empty array returns the whole term.
+          items:
+            type: object
+            required:
+            - field
+            - value
+            properties:
+              field:
+                type: string
+                description: Field to filter on. `subject` observed.
+              value:
+                type: string
+x-method: probed
+x-operator: institution
+x-source: https://courses.dartmouth.edu/api/?page=fose&route=search
+x-generated: '2026-08-30'

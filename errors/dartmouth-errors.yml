@@ -1,0 +1,35 @@
+generated: '2026-08-30'
+method: probed
+source: live responses from courses.dartmouth.edu, api.dartmouth.edu, chat.dartmouth.edu
+provider: Dartmouth College
+providerId: dartmouth
+description: >-
+  Error behaviour observed on Dartmouth's own hosts. Dartmouth publishes no error
+  reference; every entry below is a response that was actually received.
+errors:
+  - surface: Dartmouth Class Search API
+    status: 200
+    shape: '{"fatal": "<message>"}'
+    example: '{"fatal":"Could not parse incoming payload as JSON"}'
+    detail: >-
+      The class-search service signals request errors INSIDE a 200 response body. A
+      malformed body does not produce a 4xx. Clients must inspect for a `fatal` member;
+      status-code-only handling will read an error as a successful empty result.
+  - surface: DartAPI
+    status: 401
+    shape: '{"message": "Unauthorized"}'
+    detail: Returned for every resource path to an unauthenticated caller.
+  - surface: DartAPI JWT endpoint
+    status: 405
+    shape: '{"detail": "Method Not Allowed"}'
+    detail: GET on /api/jwt; the endpoint accepts POST only.
+  - surface: Dartmouth Chat AI API
+    status: 401
+    shape: '{"detail": "Not authenticated"}'
+    detail: Returned by /api/models and /api/v1/models without a DARTMOUTH_API_KEY.
+  - surface: Dartmouth Dataverse OAI-PMH
+    status: 503
+    shape: Payara Server HTML error report
+    detail: >-
+      /oai?verb=Identify returns an application-server error page, not an OAI-PMH
+      error document. Link presence is not endpoint liveness.

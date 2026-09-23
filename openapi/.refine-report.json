@@ -1,0 +1,20 @@
+{
+  "provider": "dartmouth",
+  "sources": [
+    "_original/dartmouth-class-search-api.yaml"
+  ],
+  "outputs": [
+    "dartmouth-classsearch-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "dartmouth-class-search-api.yaml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "dartmouth-classsearch-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}
