@@ -28,15 +28,20 @@ x-operator-summary:
   placeholder: 0
 deliveryModel:
   model: saas
-  open_source: false
-  commercial: false
+  license_evidence:
+    not_product:
+    - dartmouth/langchain-dartmouth
+  open_source: unknown
+  commercial: true
   callable_host: true
-  label: Institution-hosted service · mostly credentialed
-  confidence: high
+  label: Hosted service · you call their endpoint
+  confidence: low
   source:
-  - probes
-  generated: '2026-08-30'
-  method: probed
+  - openapi
+  - pricing
+  - repository-not-product
+  generated: '2026-09-25'
+  method: derived
 accessModel:
   pricing: free
   onboarding: manual

@@ -83,88 +83,6 @@ paths:
                 - $ref: '#/components/schemas/FatalResponse'
 components:
   schemas:
-    SectionDetail:
-      type: object
-      description: Full record for one section from `route=details`. Many members carry rendered HTML rather than structured data.
-      properties:
-        crn:
-          type: string
-        code:
-          type: string
-        section:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-        hours_html:
-          type: string
-        seats:
-          type: string
-          description: Enrollment and availability
-          as HTML.: null
-        status:
-          type: string
-        instmode:
-          type: string
-          description: Instructional mode.
-        meeting_html:
-          type: string
-        instructordetail_html:
-          type: string
-        registration_restrictions:
-          type: string
-        registration_options:
-          type: string
-        learning_objectives:
-          type: string
-        required_materials:
-          type: string
-        course_coreqs:
-          type: string
-        section_coreqs:
-          type: string
-        section_attributes:
-          type: string
-        clssnotes:
-          type: string
-        all_sections:
-          type: string
-    SearchResponse:
-      type: object
-      required:
-      - srcdb
-      - count
-      - results
-      properties:
-        srcdb:
-          type: string
-          description: Term the results belong to.
-        count:
-          type: integer
-          description: Number of sections returned.
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/SectionSummary'
-    DetailsRequest:
-      type: object
-      required:
-      - srcdb
-      - key
-      properties:
-        group:
-          type: string
-          description: Course grouping key, e.g. `code:COSC 001`.
-        key:
-          type: string
-          description: Section key, e.g. `crn:91925`.
-        srcdb:
-          type: string
-          description: Term code, e.g. `202609`.
-        matched:
-          type: string
-          description: The matched key echoed back, e.g. `crn:91925`.
     SectionSummary:
       type: object
       description: One class section as returned by `route=search`.
@@ -229,6 +147,53 @@ components:
         cart_opts:
           type: string
           description: JSON-encoded string of registration cart options.
+    SectionDetail:
+      type: object
+      description: Full record for one section from `route=details`. Many members carry rendered HTML rather than structured data.
+      properties:
+        crn:
+          type: string
+        code:
+          type: string
+        section:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        hours_html:
+          type: string
+        seats:
+          type: string
+          description: Enrollment and availability
+          as HTML.: null
+        status:
+          type: string
+        instmode:
+          type: string
+          description: Instructional mode.
+        meeting_html:
+          type: string
+        instructordetail_html:
+          type: string
+        registration_restrictions:
+          type: string
+        registration_options:
+          type: string
+        learning_objectives:
+          type: string
+        required_materials:
+          type: string
+        course_coreqs:
+          type: string
+        section_coreqs:
+          type: string
+        section_attributes:
+          type: string
+        clssnotes:
+          type: string
+        all_sections:
+          type: string
     FatalResponse:
       type: object
       description: Returned with HTTP 200 when the request body cannot be parsed. The only error signal the service emits.
@@ -238,6 +203,24 @@ components:
         fatal:
           type: string
           example: Could not parse incoming payload as JSON
+    DetailsRequest:
+      type: object
+      required:
+      - srcdb
+      - key
+      properties:
+        group:
+          type: string
+          description: Course grouping key, e.g. `code:COSC 001`.
+        key:
+          type: string
+          description: Section key, e.g. `crn:91925`.
+        srcdb:
+          type: string
+          description: Term code, e.g. `202609`.
+        matched:
+          type: string
+          description: The matched key echoed back, e.g. `crn:91925`.
     SearchRequest:
       type: object
       required:
@@ -264,6 +247,23 @@ components:
                 description: Field to filter on. `subject` observed.
               value:
                 type: string
+    SearchResponse:
+      type: object
+      required:
+      - srcdb
+      - count
+      - results
+      properties:
+        srcdb:
+          type: string
+          description: Term the results belong to.
+        count:
+          type: integer
+          description: Number of sections returned.
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SectionSummary'
 x-method: probed
 x-operator: institution
 x-source: https://courses.dartmouth.edu/api/?page=fose&route=search
