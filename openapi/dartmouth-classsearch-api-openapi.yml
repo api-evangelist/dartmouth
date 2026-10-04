@@ -83,88 +83,6 @@ paths:
                 - $ref: '#/components/schemas/FatalResponse'
 components:
   schemas:
-    SearchRequest:
-      type: object
-      required:
-      - criteria
-      properties:
-        other:
-          type: object
-          description: Term selector. An empty `srcdb` selects the current term.
-          properties:
-            srcdb:
-              type: string
-              description: Term code, e.g. `202609`. Empty string means current term.
-        criteria:
-          type: array
-          description: Filters to apply. An empty array returns the whole term.
-          items:
-            type: object
-            required:
-            - field
-            - value
-            properties:
-              field:
-                type: string
-                description: Field to filter on. `subject` observed.
-              value:
-                type: string
-    FatalResponse:
-      type: object
-      description: Returned with HTTP 200 when the request body cannot be parsed. The only error signal the service emits.
-      required:
-      - fatal
-      properties:
-        fatal:
-          type: string
-          example: Could not parse incoming payload as JSON
-    SectionDetail:
-      type: object
-      description: Full record for one section from `route=details`. Many members carry rendered HTML rather than structured data.
-      properties:
-        crn:
-          type: string
-        code:
-          type: string
-        section:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-        hours_html:
-          type: string
-        seats:
-          type: string
-          description: Enrollment and availability
-          as HTML.: null
-        status:
-          type: string
-        instmode:
-          type: string
-          description: Instructional mode.
-        meeting_html:
-          type: string
-        instructordetail_html:
-          type: string
-        registration_restrictions:
-          type: string
-        registration_options:
-          type: string
-        learning_objectives:
-          type: string
-        required_materials:
-          type: string
-        course_coreqs:
-          type: string
-        section_coreqs:
-          type: string
-        section_attributes:
-          type: string
-        clssnotes:
-          type: string
-        all_sections:
-          type: string
     SectionSummary:
       type: object
       description: One class section as returned by `route=search`.
@@ -229,6 +147,96 @@ components:
         cart_opts:
           type: string
           description: JSON-encoded string of registration cart options.
+    SearchRequest:
+      type: object
+      required:
+      - criteria
+      properties:
+        other:
+          type: object
+          description: Term selector. An empty `srcdb` selects the current term.
+          properties:
+            srcdb:
+              type: string
+              description: Term code, e.g. `202609`. Empty string means current term.
+        criteria:
+          type: array
+          description: Filters to apply. An empty array returns the whole term.
+          items:
+            type: object
+            required:
+            - field
+            - value
+            properties:
+              field:
+                type: string
+                description: Field to filter on. `subject` observed.
+              value:
+                type: string
+    SearchResponse:
+      type: object
+      required:
+      - srcdb
+      - count
+      - results
+      properties:
+        srcdb:
+          type: string
+          description: Term the results belong to.
+        count:
+          type: integer
+          description: Number of sections returned.
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SectionSummary'
+    SectionDetail:
+      type: object
+      description: Full record for one section from `route=details`. Many members carry rendered HTML rather than structured data.
+      properties:
+        crn:
+          type: string
+        code:
+          type: string
+        section:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        hours_html:
+          type: string
+        seats:
+          type: string
+          description: Enrollment and availability
+          as HTML.: null
+        status:
+          type: string
+        instmode:
+          type: string
+          description: Instructional mode.
+        meeting_html:
+          type: string
+        instructordetail_html:
+          type: string
+        registration_restrictions:
+          type: string
+        registration_options:
+          type: string
+        learning_objectives:
+          type: string
+        required_materials:
+          type: string
+        course_coreqs:
+          type: string
+        section_coreqs:
+          type: string
+        section_attributes:
+          type: string
+        clssnotes:
+          type: string
+        all_sections:
+          type: string
     DetailsRequest:
       type: object
       required:
@@ -247,23 +255,15 @@ components:
         matched:
           type: string
           description: The matched key echoed back, e.g. `crn:91925`.
-    SearchResponse:
+    FatalResponse:
       type: object
+      description: Returned with HTTP 200 when the request body cannot be parsed. The only error signal the service emits.
       required:
-      - srcdb
-      - count
-      - results
+      - fatal
       properties:
-        srcdb:
+        fatal:
           type: string
-          description: Term the results belong to.
-        count:
-          type: integer
-          description: Number of sections returned.
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/SectionSummary'
+          example: Could not parse incoming payload as JSON
 x-method: probed
 x-operator: institution
 x-source: https://courses.dartmouth.edu/api/?page=fose&route=search
