@@ -1,4 +1,4 @@
-# Dartmouth College (dartmouth)
+# Dartmouth College
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,56 +64,135 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Dartmouth College is a private Ivy League research university in Hanover, New Hampshire, United States, ranked #243 in the QS World University Rankings 2025. This repository catalogs Dartmouth's public developer and API footprint as an [APIs.json](https://apisjson.org) provider profile for the API Evangelist network.
+Dartmouth College is a private Ivy League research university in Hanover, New Hampshire. Its programmable footprint is small, mostly gated, and largely operated by vendors on Dartmouth's behalf — the ordinary shape for a research university, which is a federation of buyers rather than an API producer. Exactly one institution-operated interface is open to the public without credentials: the JSON backend of Dartmouth Class Search (courses.dartmouth.edu), which returns the full timetable of class meetings keyless and which Dartmouth does not document as an API. Everything else Dartmouth itself runs is behind authentication: DartAPI at api.dartmouth.edu answers 401 on every resource path and issues JWTs only against a hand-issued API key tied to a Dartmouth Service Account, its developer portal at developer.dartmouth.edu redirects to Microsoft Entra SAML so not one reference page is readable from outside, and the Dartmouth Chat AI API requires a DARTMOUTH_API_KEY. The one genuinely open machine-readable artifact Dartmouth publishes is its SAML identity-federation metadata in InCommon. The research and data surfaces — Dartmouth Open Data on ArcGIS Hub, Dartmouth Digital Commons on bepress/Elsevier, Dartmouth Dataverse — are Dartmouth's data on someone else's contract and are recorded here as tenant relationships, not as Dartmouth engineering.
 
-- APIs.json: https://raw.githubusercontent.com/api-evangelist/dartmouth/refs/heads/main/apis.yml
-- Run with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=dartmouth-api-evangelist&utm_content=repo
+**Areas:** University · Higher Education · Education · United States · Ivy League · Private Research University · Course Catalog · Identity Federation · Research Data · Open Data · Artificial Intelligence
 
-## Type
+## Dartmouth College on APIs.io
 
-- Index / Consumer / 3rd-Party
+Everything profiled for Dartmouth College is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/dartmouth/](https://apis.io/providers/dartmouth/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (7)
 
-Education, Higher Education, University, Research, Open Data, Artificial Intelligence, United States, Ivy League
+- [DartAPI](https://apis.io/apis/dartmouth/dartapi/) — Dartmouth's institutional API platform, serving resource APIs such as People (directory identity) and Nextgen class schedules. Live and…
+- [Dartmouth Chat AI API](https://apis.io/apis/dartmouth/chat-ai/) — An OpenAI- and Anthropic-compatible API over large language, embedding and reranking models running on Dartmouth's own research-computing infrastructure,…
+- [Dartmouth Identity Federation (InCommon)](https://apis.io/apis/dartmouth/identity-federation/) — Dartmouth's SAML identity provider, registered in the InCommon federation under entityID urn:mace:incommon:dartmouth.edu and retrievable as machine-readable…
+- [Dartmouth Open Data (ArcGIS Hub tenant)](https://apis.io/apis/dartmouth/open-data/) — Dartmouth's open-data portal, a tenant site on Esri's ArcGIS Hub. The data and the catalog are Dartmouth's; the search API behind it is Esri's Hub Search…
+- [Dartmouth Digital Commons (bepress/Elsevier tenant)](https://apis.io/apis/dartmouth/digital-commons/) — Dartmouth's institutional repository for scholarly, research and educational output, running on bepress/Elsevier Digital Commons under a Dartmouth…
+- [Dartmouth Dataverse](https://apis.io/apis/dartmouth/dataverse/) — Dartmouth's research-data repository, a Dataverse 6.11 deployment on Dartmouth's own host. The native Dataverse API answers unauthenticated —…
+- [Dartmouth College Class Search API](https://apis.io/apis/dartmouth/dartmouth-classsearch-api/) — Search and detail operations over the Dartmouth timetable of class meetings.
 
-## APIs
+### Published properties
 
-- **DartAPI Developer Portal** — Institutional resource APIs (People/directory, Nextgen) gated behind Dartmouth CAS SSO and manually issued, JWT-based API keys. Docs: https://developer.dartmouth.edu/
-- **Dartmouth Chat AI API** — OpenAI-compatible REST API for Dartmouth-hosted LLMs, embeddings, and reranking models, plus selected cloud models. Base: `https://chat.dartmouth.edu/api`. Docs: https://rc.dartmouth.edu/ai/online-resources/using-the-api/ — SDK: https://pypi.org/project/langchain-dartmouth/ — GitHub: https://github.com/dartmouth/langchain-dartmouth
-- **Dartmouth Open Data (ArcGIS Hub)** — Public geospatial/tabular datasets via ArcGIS Hub Search API and per-dataset ArcGIS REST/GeoJSON services. Docs: https://data-dartmouth.opendata.arcgis.com/
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## Plans
+#### JSON Schema (1)
 
-- [plans/dartmouth-plans-pricing.yml](plans/dartmouth-plans-pricing.yml)
+The data models the API reads and writes.
 
-## Rate Limits
+- [Dartmouth Class Search response](https://apis.io/schemas/dartmouth/dartmouth-class-search-response/)
 
-- [rate-limits/dartmouth-rate-limits.yml](rate-limits/dartmouth-rate-limits.yml)
+#### Vocabulary (1)
 
-## FinOps
+The provider's domain terms, defined.
 
-- [finops/dartmouth-finops.yml](finops/dartmouth-finops.yml)
+- [Dartmouth Open Data Vocabulary](https://apis.io/vocabularies/dartmouth/dartmouth-vocabulary/)
 
-## Timestamps
+#### Examples (1)
 
-- Created: 2026-06-03
-- Modified: 2026-06-03
+Example requests and responses.
 
-## Common Properties
+- [Dartmouth Class Search Example](https://apis.io/examples/dartmouth/dartmouth-class-search-example/)
 
-- Website: https://home.dartmouth.edu/
-- GitHub: https://github.com/dartmouth
-- GitHub (Digital Library Technologies Group): https://github.com/dartmouth-dltg
-- Developer Portal: https://developer.dartmouth.edu/
-- LinkedIn: https://www.linkedin.com/school/dartmouth-college/
-- Twitter/X: https://x.com/dartmouth
-- Authentication (CAS SSO): https://login.dartmouth.edu/cas/login
+#### Governance rules (1)
 
-## Notes
+Spectral rulesets for the provider's contracts.
 
-Verification caveats: The DartAPI developer portal and its documented resource APIs (People, Nextgen) appear in search results but the portal and docs pages return HTTP 302 redirects to Dartmouth CAS login — they are gated and API keys are issued manually, so endpoints were not independently confirmed and none were fabricated. The Dartmouth Chat AI API (`https://chat.dartmouth.edu/api`, 200) and the ArcGIS Hub open-data portal (200) were verified live and are documented publicly. GitHub organizations `dartmouth` and `dartmouth-dltg` are public and active.
+- [Dartmouth College — class search rules](https://apis.io/rules/dartmouth/dartmouth-class-search-rules/)
 
-## Maintainers
+#### Security (2)
 
-- Kin Lane — kin@apievangelist.com
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Dartmouth Authentication](https://apis.io/security/dartmouth/dartmouth-authentication/)
+- [Dartmouth Domain Security](https://apis.io/security/dartmouth/dartmouth-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Dartmouth Plans Pricing](https://apis.io/plans/dartmouth/dartmouth-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Dartmouth Rate Limits](https://apis.io/rate-limits/dartmouth/dartmouth-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Dartmouth Finops](https://apis.io/finops/dartmouth/dartmouth-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://home.dartmouth.edu/)
+- [Support](https://services.dartmouth.edu/TDClient/1806/Portal/Home/)
+- [Blog](https://home.dartmouth.edu/rss.xml)
+- [Privacy policy](https://home.dartmouth.edu/privacy)
+
+## API Evangelist rating
+
+**Kin Score 31.9** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 49.4 |
+| Contract governance | 7.6 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 45.2 |
+| Access clarity | 15.8 |
+
+**Agent readiness 21.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 19.1** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/dartmouth/](https://apis.io/providers/dartmouth/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Dartmouth College: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/dartmouth/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
